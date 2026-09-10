@@ -1,0 +1,1477 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wbgeo.pages.rwth-aachen.de/codebase/components/simulation/Manual_simulation/">
+      
+      
+        <link rel="prev" href="../../meshing/Manual_meshing/">
+      
+      
+        <link rel="next" href="../../visualization/Manual_visualization/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Process Simulation - WBGeo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simulation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="WBGeo" class="md-header__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WBGeo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Process Simulation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://git.rwth-aachen.de/wbgeo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="WBGeo" class="md-nav__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    WBGeo
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://git.rwth-aachen.de/wbgeo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../installation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/visual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Editor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/codebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../structural_modeling/Manual_structural_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structural Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meshing/Manual_meshing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meshing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Simulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-build-the-problem-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Build the problem definition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Build the problem definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-generated-build-hydrothermal-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-generated: Build Hydrothermal Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-supplied-build-custom-sfepy-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User-supplied: Build Custom SfePy Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run the simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-export-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Export the results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualisation-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation and Inspection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualisation and Inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot Materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-variable-at-a-time-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a variable at a time step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-cross-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a cross-section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-solver-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View solver output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-codebase-only-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional codebase-only plots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/Manual_visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../developers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer's Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer's Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-build-the-problem-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Build the problem definition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Build the problem definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auto-generated-build-hydrothermal-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto-generated: Build Hydrothermal Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-supplied-build-custom-sfepy-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User-supplied: Build Custom SfePy Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run the simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-export-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Export the results
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualisation-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation and Inspection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualisation and Inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot Materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-variable-at-a-time-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a variable at a time step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-cross-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a cross-section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-solver-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View solver output
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-codebase-only-plots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional codebase-only plots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="simulation">Simulation</h1>
+<p>The simulation component connects the Workbench to numerical solvers. Since the meshing component exports to multiple standard formats, the Workbench can interface with a range of commercial and open-source simulation packages. In the current version, <strong>SfePy</strong> (Simple Finite Elements in Python) is integrated as an open-source, Python-based multi-physics finite element framework. Meshes generated within the Workbench are passed directly to SfePy at runtime, without manual file management.</p>
+<blockquote>
+<p><strong>Note:</strong> The current version supports single-phase Darcy flow coupled with advective-conductive heat transport (a simplified hydrothermal model), plus arbitrary physics via a user-supplied SfePy input file. Faults are represented only as a "damage zone" of reassigned material properties, not as explicit geometric discontinuities, and engineering objects (wells, sources, shafts) are not solved for physically even where the mesh contains them.</p>
+</blockquote>
+<hr />
+<h2 id="concepts">Concepts</h2>
+<p>Before a model can be solved, it needs a <strong>problem definition</strong> — the mesh plus everything SfePy needs to actually run: material properties, boundary conditions, and solver settings. The Workbench offers two ways to build one:</p>
+<p><strong>Hydrothermal Problem</strong> — auto-generated from the mesh and its structural model. Material regions and boundary regions are inferred directly from the lithology mapping and the mesh's top/bottom point sets; the physics is a simplified, single-phase Darcy flow coupled to advective-conductive heat transport. No SfePy scripting required — only physical properties per rock unit and a handful of solver settings.</p>
+<p><strong>Custom SfePy Problem</strong> — wraps a complete, hand-written SfePy input file with its own physics, staging, and sequencing logic. Not restricted to hydrothermal physics — any SfePy problem can be brought in this way. It is validated against the mesh (known mesh type, known lithology mapping, and that every region the file references actually exists), but the physics itself — material properties, equations, solver configuration — is entirely up to the file and is not checked; SfePy's own execution is the final authority.</p>
+<p>Both produce the same problem-definition type and connect to the same <code>Run Simulation</code> component, so a workflow can be built once and switched between an auto-generated and a custom problem without rewiring anything downstream.</p>
+<p><strong>Materials.</strong> Each lithology in the structural model becomes its own material region, with its own porosity, permeability, thermal conductivity, and volumetric heat capacity. A single set of fluid properties (viscosity, thermal conductivity, heat capacity) is shared across the whole model — a single-phase assumption. Reasonable defaults (water at roughly 20°C, typical sedimentary rock properties) are used for anything not specified explicitly.</p>
+<p><strong>Fault representation.</strong> SfePy has no dedicated fault or interface element, and only unstructured meshing explicitly meshes fault surfaces — implicit and structured meshes carry no fault geometry at all, only a per-cell lithology id. Faults are therefore represented as a <strong>damage zone</strong>: a band of mesh cells within a chosen distance of each fault's trace is reassigned its own material, distinct from the surrounding lithology. This is a standard, simplified proxy for fault hydraulics (a sealing gouge zone or a fracture-enhanced conduit, depending on the properties assigned) rather than an exact geometric fault. All faults in a model share one combined damage-zone region — faults are not modeled individually.</p>
+<p><strong>Two-stage solve (Hydrothermal Problem only).</strong> Pressure and temperature are solved as two sequential, single-physics stages rather than one coupled system: first a steady-state Darcy pressure solve, then a transient heat solve that uses the Darcy velocity computed from the pressure solution as an advection term. Temperature therefore depends on the flow field, but the flow field never depends on temperature (no buoyancy-driven convection). Segregating the two stages also keeps each one numerically well-conditioned — combining pressure (order 10⁶ Pa) and temperature (tens of °C) into a single linear system is not. Set <code>include_flow=False</code> to skip the pressure stage entirely and solve pure heat conduction instead.</p>
+<hr />
+<h2 id="workflow">Workflow</h2>
+<h3 id="1-build-the-problem-definition">1. Build the problem definition</h3>
+<p>Two alternative components build a problem definition — pick the one that fits your model. Both connect to the same <code>Run Simulation</code> component in step 2.</p>
+<h4 id="auto-generated-build-hydrothermal-problem">Auto-generated: Build Hydrothermal Problem</h4>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Build Hydrothermal Problem</code></p>
+</blockquote>
+<p>Requires a mesh with a known origin (produced by one of the meshing components) and a per-cell lithology mapping — always present for implicit and structured meshes, and present for unstructured meshes only when they were generated with automatic lithology mapping.</p>
+<ul>
+<li><strong><code>mesh_results</code></strong>: The mesh to solve on (implicit, structured, or unstructured).</li>
+<li><strong><code>geomodel_result</code></strong>: The structural model <code>mesh_results</code> was generated from — supplies rock unit names, fault geometry, and boundary point sets.</li>
+<li><strong><code>options</code></strong> <em>(optional)</em>: Per-rock-unit properties (porosity, permeability, thermal conductivity, volumetric heat capacity), global fluid properties, and fault-zone properties. In the visual interface this is a form generated per rock unit once a structural model is connected; in the codebase it is a plain dictionary of <code>RockUnitProperties</code>. Any rock unit not given explicit properties falls back to the defaults.</li>
+<li><strong><code>include_flow</code></strong> <em>(optional)</em>: If <code>False</code>, skips the pressure stage and solves pure heat conduction only. Default <code>True</code>.</li>
+<li><strong><code>enable_fault_zone</code></strong> <em>(optional)</em>: If <code>True</code>, gives cells near any fault their own material (the fault-zone properties from <code>options</code>) instead of treating them as ordinary lithology. Has no effect if the structural model has no faults. Default <code>False</code>.</li>
+<li><strong><code>fault_zone_n_voxels</code></strong> <em>(optional)</em>: Width of the fault damage zone, in structural-grid voxels. Default <code>1</code>.</li>
+<li><strong><code>t0</code></strong>, <strong><code>t1</code></strong>, <strong><code>num_steps</code></strong> <em>(optional)</em>: Start time, end time, and number of steps for the transient heat stage. Default <code>t0=0.0</code>, <code>num_steps=1</code>; <code>t1</code> defaults to a data-driven estimate of the model's thermal diffusion timescale if not given.</li>
+<li><strong><code>p_top</code></strong>, <strong><code>p_bottom</code></strong> <em>(optional)</em>: Pressure boundary values at the model top/bottom, in Pa. Default <code>p_top=0.0</code>, <code>p_bottom=1e6</code>.</li>
+<li><strong><code>t_top</code></strong>, <strong><code>t_bottom</code></strong> <em>(optional)</em>: Temperature boundary values at the model top/bottom, in °C. Default <code>t_top=10.0</code>, <code>t_bottom=60.0</code>.</li>
+<li><strong><code>linear_solver</code></strong> <em>(optional)</em>: <code>"iterative"</code> (default) scales to large meshes; <code>"direct"</code> is exact but does not scale well — use it for small or debug meshes.</li>
+<li><strong><code>linear_solver_i_max</code></strong>, <strong><code>linear_solver_eps_r</code></strong> <em>(optional)</em>: Maximum iterations and relative residual tolerance for the iterative linear solver. Default <code>500</code> and <code>1e-8</code>.</li>
+</ul>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">rock_properties</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">"basement"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"basement"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-13</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">3900000</span><span class="p">),</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">"rock1"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock1"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-11</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">800000</span><span class="p">),</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">"rock2"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock2"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">3400000</span><span class="p">),</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">fluid</span> <span class="o">=</span> <span class="n">FluidProperties</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">,</span> <span class="n">k_fluid</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rho_c_fluid</span><span class="o">=</span><span class="mi">2400000</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">HydrothermalProblemBuilder</span><span class="p">(</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_implicit_structured</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">rock_properties</span><span class="o">=</span><span class="n">rock_properties</span><span class="p">,</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">fluid</span><span class="o">=</span><span class="n">fluid</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">include_flow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">t1</span><span class="o">=</span><span class="mf">5e11</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">num_steps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Here, <code>rock_properties</code> gives each lithology its own porosity, permeability, thermal conductivity, and heat capacity; <code>fluid</code> describes the pore fluid. <code>t1=5e11</code> overrides the default diffusion-timescale estimate for the heat stage's end time, solved over <code>num_steps=3</code> steps.</p>
+<p>A faulted model additionally enables the damage zone:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">fault_zone_properties</span> <span class="o">=</span> <span class="n">RockUnitProperties</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"fault_zone"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-19</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">2300000</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">HydrothermalProblemBuilder</span><span class="p">(</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_explicit_unstructured</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">rock_properties</span><span class="o">=</span><span class="n">rock_properties</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">fluid</span><span class="o">=</span><span class="n">fluid</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">fault_zone_properties</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">fault_zone_n_voxels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>This gives the fault a low porosity/permeability — a sealing fault. Raising <code>permeability</code> above the surrounding rock instead represents a fracture-enhanced conduit.</p>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li><strong>Single-phase fluid.</strong> One set of fluid properties is shared across the whole model — no multiphase flow.</li>
+<li><strong>Segregated, one-way coupling.</strong> Temperature depends on the flow field, but the flow field never depends on temperature — there is no buoyancy-driven (free) convection.</li>
+<li><strong>Structured meshes do not support faulted models.</strong> Use an implicit or unstructured mesh for a faulted structural model instead (see the meshing manual).</li>
+<li><strong>No engineering objects.</strong> Wells, point sources, and mining shafts can be embedded in an unstructured mesh for geometric refinement (see the meshing manual), but their mesh cells are excluded from the solved domain entirely — there is no well injection/production term and no point-source term.</li>
+<li><strong>Fault zones are a single combined region.</strong> All faults in a model share one damage-zone material, not modeled individually, and the damage zone is a fixed-width band around each fault's trace rather than an exact geometric split.</li>
+</ul>
+<h4 id="user-supplied-build-custom-sfepy-problem">User-supplied: Build Custom SfePy Problem</h4>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Build Custom SfePy Problem</code></p>
+</blockquote>
+<p>Brings a complete, hand-written SfePy input file into the Workbench instead of letting the physics be auto-generated.</p>
+<ul>
+<li><strong><code>input_file</code></strong>: Path to a complete SfePy input file (<code>.py</code>). In the visual interface, the file is picked from a folder of user-provided files made available to the Workbench.</li>
+<li><strong><code>mesh_results</code></strong>: The mesh to solve on. Meshes containing wells or sources are rejected — not supported by this component.</li>
+<li><strong><code>geomodel_result</code></strong> <em>(optional)</em>: The structural model, used for an additional sanity check (comparing the number of referenced regions against the number of lithologies) and required if <code>fault_zone_n_voxels</code> is set.</li>
+<li><strong><code>fault_zone_n_voxels</code></strong> <em>(optional)</em>: If set, gives cells within this many structural-grid voxels of any active fault's trace their own region id — the same damage-zone cell selection <code>Build Hydrothermal Problem</code> uses, referenceable from the custom file as <code>cells of group N</code>. No material or equation is generated for it automatically; it is entirely up to the custom file what to do with these cells.</li>
+</ul>
+<p>The mesh and region bookkeeping are validated at build time — known mesh type, known lithology mapping, and every <code>cells of group N</code> selector the file references actually existing on the mesh — but this cannot catch a wrong material property or a malformed equation; SfePy's own solve remains the final check.</p>
+<p>Two worked examples, covering both a from-scratch derivation and a bit-for-bit reproduction of the equivalent Hydrothermal Problem, are provided for each of the synthetic example models:</p>
+<ul>
+<li><code>examples/synthetic_examples/model1/input_data/simulation_files/custom_hydrothermal_fromscratch_implicit.py</code> and <code>custom_hydrothermal_reproduction_implicit.py</code> — for model1's unfaulted, implicit mesh.</li>
+<li><code>examples/synthetic_examples/model2/input_data/simulation_files/custom_hydrothermal_fromscratch_faulted_unstructured.py</code> and <code>custom_hydrothermal_reproduction_faulted_unstructured.py</code> — for model2's faulted, unstructured mesh, including its fault damage zone.</li>
+</ul>
+<p>The "from-scratch" files build the same physics from first principles, without relying on any internals of <code>Build Hydrothermal Problem</code>; the "reproduction" files instead reconstruct its generated input bit-for-bit. Both are a practical starting point for writing a custom problem against a new mesh.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"examples/synthetic_examples/model1/input_data/simulation_files/custom_hydrothermal_fromscratch_implicit.py"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">custom_input_file_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">custom_builder</span> <span class="o">=</span> <span class="n">CustomSfepyBuilder</span><span class="p">(</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">input_file_contents</span><span class="o">=</span><span class="n">custom_input_file_contents</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_implicit_structured</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Limitations:</strong></p>
+<ul>
+<li><strong>No engineering objects.</strong> A mesh containing wells or sources is rejected outright at build time — not supported yet.</li>
+<li><strong>Structural validation only.</strong> Only the mesh and referenced regions are checked; material properties and equations are not — a malformed custom file is only caught when SfePy actually runs it.</li>
+<li><strong>Fault zones are a single combined region</strong>, the same limitation <code>Build Hydrothermal Problem</code> has (see above) — if <code>fault_zone_n_voxels</code> is used.</li>
+</ul>
+<h3 id="2-run-the-simulation">2. Run the simulation</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Run Simulation</code></p>
+</blockquote>
+<p>Runs the problem definition from either build step above. The two-stage pressure/heat solve is used for a Hydrothermal Problem; a single SfePy run is used for a Custom SfePy Problem — the correct one is selected automatically based on which build component produced the input.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">data_by_time</span> <span class="o">=</span> <span class="n">run_simulation_sfepy</span><span class="p">(</span><span class="n">builder</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="3-export-the-results">3. Export the results</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Export Simulation Results</code></p>
+</blockquote>
+<p>Exports every solved time step to a downloadable, zipped VTK time series — one legacy <code>.vtk</code> file per time step plus a ParaView <code>.pvd</code> collection file tying them together with their actual time values, so the result opens directly in ParaView with full time-stepping.</p>
+<blockquote>
+<p><strong>Note:</strong> VTK is currently the only export format implemented for simulation results.</p>
+</blockquote>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">buf</span> <span class="o">=</span> <span class="n">export_simulation_results</span><span class="p">(</span><span class="n">data_by_time</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"vtk"</span><span class="p">)</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"simulation_results.zip"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+</span></code></pre></div>
+<hr />
+<h2 id="visualisation-and-inspection">Visualisation and Inspection</h2>
+<blockquote>
+<p><strong>Workbench:</strong> Where available, these are exposed as inspector functions with limited functionality in the visual interface (visual DSL) — parameters are fixed; the codebase functions below expose the full set of options.</p>
+</blockquote>
+<h3 id="plot-materials">Plot Materials</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Plot Materials</code></p>
+</blockquote>
+<p>A pre-flight check, run on the problem definition before solving: plots the mesh colored one solid color per material (lithologies, plus the fault damage zone if active), with a legend of the properties each material actually uses. Catches a wrong material or fault-zone assignment before running a solve that can take a while. Works for both a Hydrothermal Problem (legend entries summarize porosity/permeability/conductivity/heat capacity) and a Custom SfePy Problem (legend entries are bare material names, since a custom file has no structured properties object to summarize).</p>
+<ul>
+<li><strong><code>builder</code></strong>: A <code>HydrothermalProblemBuilder</code> or <code>CustomSfepyBuilder</code> (not yet run).</li>
+<li><strong><code>style</code></strong> <em>(optional)</em>: PyVista mesh style — <code>"surface"</code>, <code>"wireframe"</code>, or <code>"points"</code>. Default <code>"surface"</code>.</li>
+<li><strong><code>show_edges</code></strong> <em>(optional)</em>: If <code>True</code>, displays mesh element boundaries. Default <code>True</code>.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">plot_builder_materials</span><span class="p">(</span><span class="n">builder</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="plot-a-variable-at-a-time-step">Plot a variable at a time step</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Plot Variable (Final Time)</code></p>
+</blockquote>
+<p>Produces a 3D visualisation of a selected simulation variable at a specific time step.</p>
+<ul>
+<li><strong><code>sim</code></strong>: The <code>SimulationResults</code> object.</li>
+<li><strong><code>var_name</code></strong> <em>(optional)</em>: Variable to visualise, e.g. <code>"T"</code> or <code>"p"</code>. Defaults to <code>"T"</code> if present, otherwise whichever field the result actually has — a Custom SfePy Problem is not restricted to hydrothermal variable names.</li>
+<li><strong><code>time</code></strong> <em>(optional)</em>: Time step at which to plot. Defaults to the final saved step.</li>
+<li><strong><code>cmap</code></strong> <em>(optional)</em>: Colormap, default <code>"viridis"</code>.</li>
+<li><strong><code>show_edges</code></strong> <em>(optional)</em>: If <code>True</code>, displays mesh element boundaries. Default <code>False</code>.</li>
+<li><strong><code>show_contours</code></strong> <em>(optional)</em>: If <code>True</code>, overlays isolines of <code>var_name</code> on the 3D surface. Default <code>False</code>.</li>
+<li><strong><code>scale</code></strong> <em>(optional)</em>: Tuple <code>(sx, sy, sz)</code> to scale the geometry along each axis. Default <code>(1, 1, 1)</code>.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">plot_variable_at_a_time</span><span class="p">(</span><span class="n">data_by_time</span><span class="p">,</span> <span class="s2">"T"</span><span class="p">,</span> <span class="n">time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="plot-a-cross-section">Plot a cross-section</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Plot Cross Section 2D</code></p>
+</blockquote>
+<p>Slices a variable at two time steps (initial and final by default) on the same plane and plots them side by side, sharing one color scale for direct visual comparison.</p>
+<ul>
+<li><strong><code>sim</code></strong>: The <code>SimulationResults</code> object.</li>
+<li><strong><code>var_name</code></strong> <em>(optional)</em>: Variable to visualise, same default as above.</li>
+<li><strong><code>time_a</code></strong>, <strong><code>time_b</code></strong> <em>(optional)</em>: The two time steps to compare. Default to the first and last saved steps.</li>
+<li><strong><code>origin</code></strong> <em>(optional)</em>: A 3D point the slicing plane passes through. Default <code>(0, 0, 0)</code>.</li>
+<li><strong><code>normal</code></strong> <em>(optional)</em>: A 3D vector defining the orientation of the slicing plane. Default <code>(0, 1, 0)</code>.</li>
+<li><strong><code>cmap</code></strong> <em>(optional)</em>: Colormap, default <code>"coolwarm"</code>.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">plot_cross_section_2D</span><span class="p">(</span><span class="n">data_by_time</span><span class="p">,</span> <span class="s2">"T"</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span> <span class="n">normal</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="view-solver-output">View solver output</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>View Solver Output</code></p>
+</blockquote>
+<p>Prints the raw SfePy solver output for a result, per stage (<code>"pressure"</code>/<code>"heat"</code> for a Hydrothermal Problem, <code>"custom"</code> for a Custom SfePy Problem) — lets solver convergence and quality be checked on a normal, successful run too, not only via the error raised when a solve fails to converge.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">for</span> <span class="n">stage</span><span class="p">,</span> <span class="n">stdout</span> <span class="ow">in</span> <span class="n">data_by_time</span><span class="o">.</span><span class="n">sfepy_stdout</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"=== </span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2"> ==="</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="additional-codebase-only-plots">Additional codebase-only plots</h3>
+<p>The following are not currently exposed as Workbench inspectors, but are available for further analysis in the codebase.</p>
+<p><strong>Plot the change between two time steps</strong> — <code>plot_variable_difference(sim, var_name, time_a=None, time_b=None, cmap="RdBu_r", show_edges=False, scale=(1, 1, 1))</code>: a 3D plot of <code>value(time_b) - value(time_a)</code> using a diverging colormap centered on zero, isolating what actually changed rather than relying on eyeballing two separate absolute snapshots.</p>
+<p><strong>Plot a cross-section of the change between two time steps</strong> — <code>plot_cross_section_difference_2D(sim, var_name, time_a=None, time_b=None, origin=(0, 0, 0), normal=(1, 0, 0), cmap="RdBu_r", n_contours=15, resolution=200)</code>: the 2D cross-section analogue of the above.</p>
+<p><strong>Plot a variable along a line</strong> — <code>plot_variable_along_line(sim, var_name, time, p0, p1, n_samples=200)</code>: a 2D profile of a variable versus distance along a straight line between two points, for quantitative comparison along a transect.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">plot_variable_along_line</span><span class="p">(</span><span class="n">data_by_time</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">p0</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">p1</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">1000</span><span class="p">),</span> <span class="n">n_samples</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>Print a variable at a point</strong> — <code>print_variable_at_point(sim, var_name, time, point)</code>: samples and logs the value of a variable at a specific spatial point and time step.</p>
+<p><strong>Plot a time series at a point</strong> — <code>plot_variable_time_series(sim, var_name, point, decimals=3)</code>: tracks the temporal evolution of a variable at a fixed spatial location across every saved time step.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">plot_variable_time_series</span><span class="p">(</span><span class="n">data_by_time</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="n">point</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+</span></code></pre></div>
+<hr />
+<h2 id="output">Output</h2>
+<blockquote>
+<p><strong>Workbench:</strong> The <code>problem</code> output port of <code>Build Hydrothermal Problem</code> or <code>Build Custom SfePy Problem</code> connects directly to <code>Run Simulation</code>, and can be inspected in-place using <code>Plot Materials</code>. The <code>simulation_result</code> output port of <code>Run Simulation</code> carries the solved result — it can be connected to <code>Export Simulation Results</code>, or inspected in-place using <code>Plot Variable (Final Time)</code>, <code>Plot Cross Section 2D</code>, and <code>View Solver Output</code>.</p>
+</blockquote>
+<p><code>run_simulation_sfepy()</code> returns a <code>SimulationResults</code> object — a time-dependent container for geometry, topology, and result fields:</p>
+<ul>
+<li><strong><code>nodes_by_time</code></strong> — nodal coordinates for each solved time step, shaped <code>(n_nodes, 3)</code>.</li>
+<li><strong><code>cells_by_time</code></strong> — cell connectivity for each solved time step.</li>
+<li><strong><code>celltypes_by_time</code></strong> — VTK-style cell type identifiers for each element.</li>
+<li><strong><code>node_data_by_time</code></strong> — node-based variables (e.g. <code>"T"</code>, <code>"p"</code>), as <code>{variable_name: array}</code> dictionaries per time step.</li>
+<li><strong><code>cell_data_by_time</code></strong> — element-based variables, in the same structure as <code>node_data_by_time</code>.</li>
+<li><strong><code>sfepy_stdout</code></strong> — raw solver output, keyed by stage (<code>"pressure"</code>/<code>"heat"</code>, or <code>"custom"</code>).</li>
+</ul>
+<p>Time steps are keyed by their saved step index (<code>0</code>, <code>1</code>, <code>2</code>, ...), not by physical simulation time — one file is saved per actually-solved step, so the fully evolved final state is always at <code>max(sim.nodes_by_time.keys())</code>.</p>
+<p><code>SimulationResults</code> is the <code>sim</code> object used throughout Visualisation and Inspection above, and the direct input to <code>Export Simulation Results</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../meshing/Manual_meshing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Meshing">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Meshing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../visualization/Manual_visualization/" class="md-footer__link md-footer__link--next" aria-label="Next: Visualization">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Visualization
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      (c) https://git.rwth-aachen.de/wbgeo/
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "search.highlight", "search.suggest", "navigation.indexes", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

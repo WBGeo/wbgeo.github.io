@@ -1,0 +1,3231 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wbgeo.pages.rwth-aachen.de/codebase/components/simulation/Manual_simulation/">
+      
+      
+        <link rel="prev" href="../../meshing/Manual_meshing/">
+      
+      
+        <link rel="next" href="../../visualization/Manual_visualization/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Process Simulation - WBGeo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#simulation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="WBGeo" class="md-header__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WBGeo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Process Simulation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://git.rwth-aachen.de/wbgeo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="WBGeo" class="md-nav__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    WBGeo
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://git.rwth-aachen.de/wbgeo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../installation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/visual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Editor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/codebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../structural_modeling/Manual_structural_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structural Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meshing/Manual_meshing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meshing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Simulation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-problem-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy problem definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-problem-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM problem definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fault representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solver-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solver execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-build-the-problem-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Build the problem definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-auto-generated-hydrothermal-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy: Auto-generated Hydrothermal Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-user-supplied-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy: User-supplied Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-auto-generated-hydrothermal-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM: Auto-generated Hydrothermal Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-simple-reservoir-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM: Simple Reservoir Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GOLEM: Simple Reservoir Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structural-model-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structural-model input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unstructured-mesh-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unstructured-mesh inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-geometry-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional geometry overrides
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-refinement-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well refinement inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthetic-fracture-refinement-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic-fracture refinement inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reservoir-rock-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reservoir rock properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthetic-fracture-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic-fracture properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geological-fault-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geological-fault property
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluid-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluid properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-and-boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial and boundary conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injection-and-extraction-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Injection and extraction inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transient-simulation-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transient-simulation inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petsc-solver-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PETSc solver controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-and-diagnostic-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output and diagnostic controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-user-supplied-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM: User-supplied Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GOLEM: User-supplied Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-files-for-a-custom-golem-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auxiliary files for a custom GOLEM input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-mesh-file-by-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existing mesh file by address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchical-custom-golem-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchical custom GOLEM simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run the simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Run the simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-sfepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run SfePy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-golem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run GOLEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchical-golem-csv-output-and-post-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchical GOLEM CSV output and post-processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-export-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Export the results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Export the results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-result-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy result export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-result-output-and-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM result output and export
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualisation-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation and Inspection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualisation and Inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot Materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-variable-at-a-time-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a variable at a time step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-cross-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a cross-section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-solver-output-sfepy-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View solver output (SfePy only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-codebase-only-plots-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional codebase-only plots and inspection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional codebase-only plots and inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-the-difference-between-two-time-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot the difference between two time steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-cross-section-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a cross-section difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-variable-along-a-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a variable along a line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-a-variable-at-a-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print a variable at a point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-time-series-at-a-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a time series at a point
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/Manual_visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../developers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer's Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer's Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-problem-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy problem definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-problem-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM problem definitions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fault-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fault representation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solver-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solver execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-build-the-problem-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Build the problem definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-auto-generated-hydrothermal-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy: Auto-generated Hydrothermal Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-user-supplied-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy: User-supplied Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-auto-generated-hydrothermal-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM: Auto-generated Hydrothermal Problem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-simple-reservoir-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM: Simple Reservoir Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GOLEM: Simple Reservoir Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#structural-model-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structural-model input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unstructured-mesh-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unstructured-mesh inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-geometry-overrides" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional geometry overrides
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-refinement-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well refinement inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthetic-fracture-refinement-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic-fracture refinement inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reservoir-rock-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reservoir rock properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#synthetic-fracture-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Synthetic-fracture properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geological-fault-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Geological-fault property
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#well-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Well properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluid-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fluid properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-and-boundary-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial and boundary conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#injection-and-extraction-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Injection and extraction inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transient-simulation-inputs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transient-simulation inputs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#petsc-solver-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PETSc solver controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-and-diagnostic-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output and diagnostic controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-user-supplied-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM: User-supplied Problem
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GOLEM: User-supplied Problem">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auxiliary-files-for-a-custom-golem-input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auxiliary files for a custom GOLEM input
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existing-mesh-file-by-address" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existing mesh file by address
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchical-custom-golem-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchical custom GOLEM simulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-run-the-simulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Run the simulation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Run the simulation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-sfepy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run SfePy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-golem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run GOLEM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hierarchical-golem-csv-output-and-post-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hierarchical GOLEM CSV output and post-processing
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-export-the-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Export the results
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Export the results">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sfepy-result-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SfePy result export
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#golem-result-output-and-export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GOLEM result output and export
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualisation-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation and Inspection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Visualisation and Inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot Materials
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-variable-at-a-time-step" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a variable at a time step
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-cross-section" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a cross-section
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#view-solver-output-sfepy-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        View solver output (SfePy only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#additional-codebase-only-plots-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Additional codebase-only plots and inspection
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Additional codebase-only plots and inspection">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#plot-the-difference-between-two-time-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot the difference between two time steps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-cross-section-difference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a cross-section difference
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-variable-along-a-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a variable along a line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#print-a-variable-at-a-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Print a variable at a point
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plot-a-time-series-at-a-point" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plot a time series at a point
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="simulation">Simulation</h1>
+<p>The simulation component connects the Workbench to numerical solvers.
+Since the meshing component exports the mesh to different formats, WBGeo
+can interface with various simulation packages. The current simulation
+architecture provides two solver pipelines:</p>
+<ul>
+<li><strong>SfePy</strong> (Simple Finite Elements in Python) for Python-native
+    finite-element simulations, supporting the built-in hydrothermal
+    workflow as well as user-supplied SfePy problems.</li>
+<li><strong>GOLEM/MOOSE</strong> for hydrothermal and simple-reservoir simulations,
+    as well as user-supplied GOLEM/MOOSE problems, executed through an
+    external Docker environment.</li>
+</ul>
+<p>Both pipelines follow the same general Workbench pattern:</p>
+<p><code>Build problem -&gt; Run simulation -&gt; SimulationResults -&gt; Visualise / Export</code></p>
+<p>The solver-specific builders and runners are different, but both
+pipelines return the common <code>SimulationResults</code> type. This allows the
+same downstream result visualisation and export components.</p>
+<hr />
+<h2 id="concepts">Concepts</h2>
+<p>Before a model can be solved, it needs a <strong>problem definition</strong>: the
+mesh together with material properties, boundary and initial conditions,
+solver settings, and the solver-specific description of the governing
+equations.</p>
+<p>The Workbench currently provides five problem-building routes.</p>
+<h3 id="sfepy-problem-definitions">SfePy problem definitions</h3>
+<p><strong>Hydrothermal Problem</strong> --- auto-generated from the mesh and structural
+model. Material regions and boundary regions are inferred from the
+lithology mapping and mesh information. The built-in formulation solves
+simplified single-phase Darcy flow followed by advective-conductive heat
+transport.</p>
+<p><strong>Custom SfePy Problem</strong> --- wraps a complete user-supplied SfePy <code>.py</code>
+input file. The custom file specifies a user-defined problem with its
+variables, materials, equations and solvers. WBGeo validates the input
+file against the mesh (known mesh type, known lithology mapping, and
+that every region the file references actually exists).</p>
+<p>Both SfePy routes produce an <code>SfepyProblem</code> and connect to the same
+<code>Run Simulation</code> component.</p>
+<h3 id="golem-problem-definitions">GOLEM problem definitions</h3>
+<p><strong>GOLEM Hydrothermal Problem</strong> --- auto-generates a GOLEM/MOOSE
+hydrothermal problem from a WBGeo mesh, structural model, rock
+properties, fluid properties, boundary conditions, and optional fault
+properties.</p>
+<p><strong>GOLEM Simple Reservoir Problem</strong> --- builds a dedicated reservoir
+model for GOLEM, including the reservoir mesh and support for synthetic
+fractures, a well, and injection/extraction source behaviour.</p>
+<p><strong>Custom GOLEM Problem</strong> --- wraps a complete user-supplied GOLEM/MOOSE
+<code>.i</code> input file. A custom run can use a WBGeo mesh already held in Python,
+one level of a hierarchical WBGeo mesh, or an existing mesh file supplied
+by path. The <code>.i</code> file selects the corresponding mesh source through one
+of <code>${GOLEM_MESH_FILE}</code>, <code>${GOLEM_MESH1_FILE}</code>, or
+<code>${GOLEM_MESH2_FILE}</code>.</p>
+<p>All three GOLEM routes produce a <code>GolemProblem</code> and connect to the same
+<code>Run GOLEM Simulation</code> component.</p>
+<h3 id="materials">Materials</h3>
+<p>For the built-in hydrothermal workflows, each geological unit can be
+assigned its own rock properties. These include quantities such as
+porosity, permeability, thermal conductivity, density, or volumetric
+heat capacity, depending on the solver-specific builder. Fluid
+properties include viscosity, thermal_conductivity, density, and
+heat_capacity.</p>
+<h3 id="fault-representation">Fault representation</h3>
+<p>Fault handling is an important difference between the two solver
+pipelines.</p>
+<p>In the built-in <strong>SfePy</strong> workflow, faults are represented as a
+<strong>volumetric damage zone</strong>. Mesh cells within a specified distance of
+the fault trace are reassigned to a fault-zone material. This is a
+simplified representation of a sealing or conductive fault zone rather
+than an explicit lower-dimensional discontinuity.</p>
+<p>In <strong>GOLEM</strong>, an explicit unstructured mesh can contain exported <strong>2D
+fault element blocks</strong>. <code>GolemFaultProperties</code> can then be assigned to
+those fault blocks, including an aperture used for the lower-dimensional
+fault formulation. This makes the GOLEM route suitable when the
+explicitly meshed fault surface should participate in the numerical
+model.</p>
+<h3 id="solver-execution">Solver execution</h3>
+<p>SfePy and GOLEM differ mainly at execution time.</p>
+<p><strong>SfePy</strong> runs inside the WBGeo Python environment. For the built-in
+hydrothermal problem, pressure and temperature are solved sequentially:
+first the Darcy pressure problem, then transient heat transport using
+the resulting Darcy velocity. A custom SfePy problem instead follows the
+execution defined by the supplied Python input.</p>
+<p><strong>GOLEM</strong> is external to the WBGeo Python environment. The GOLEM runner
+stages the mesh and input file, validates their compatibility, executes
+GOLEM/MOOSE through Docker and MPI, collects the Exodus output, and
+converts it back to WBGeo's common result representation.</p>
+<blockquote>
+<p><strong>Cluster execution:</strong> The runner documented here currently implements the Docker/MPI backend only. A GOLEM installation available directly on an HPC cluster is not yet selected automatically by <code>run_simulation_golem()</code>. Native SLURM execution (for example, launching GOLEM with <code>srun</code> across allocated nodes) requires a separate SLURM/native backend in the runner. The WBGeo problem builders and custom-input staging concepts can be reused by that backend.</p>
+</blockquote>
+<hr />
+<h2 id="workflow">Workflow</h2>
+<blockquote>
+<p><strong>Examples:</strong> Examples 1 and 2 demonstrate how to use the two
+simulation pipelines available in WBGeo: <strong>SfePy</strong> and
+<strong>GOLEM/MOOSE</strong>. They provide practical examples of building, running,
+and working with simulation problems using these solvers.</p>
+</blockquote>
+<h3 id="1-build-the-problem-definition">1. Build the problem definition</h3>
+<p>Choose the builder corresponding to the solver and model type.</p>
+<h3 id="sfepy-auto-generated-hydrothermal-problem">SfePy: Auto-generated Hydrothermal Problem</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Build Hydrothermal Problem</code></p>
+</blockquote>
+<p>Requires a mesh together with the structural model used to create it.</p>
+<ul>
+<li><strong><code>mesh_results</code></strong>: The mesh to solve on (implicit, structured, or
+    unstructured).</li>
+<li><strong><code>geomodel_result</code></strong>: The structural model.</li>
+<li><strong><code>options</code></strong> <em>(optional)</em>: Per-rock-unit properties (porosity,
+    permeability, thermal conductivity, volumetric heat capacity),
+    global fluid properties, and fault-zone properties.</li>
+<li><strong><code>include_flow</code></strong> <em>(optional)</em>: If <code>False</code>, skips the pressure
+    stage and solves pure heat conduction only. Default <code>True</code>.</li>
+<li><strong><code>enable_fault_zone</code></strong> <em>(optional)</em>: If <code>True</code>, gives cells near
+    any fault their own material (the fault-zone properties from
+    <code>options</code>) instead of treating them as ordinary lithology. Has no
+    effect if the structural model has no faults. Default <code>False</code>.</li>
+<li><strong><code>fault_zone_n_voxels</code></strong> <em>(optional)</em>: Width of the fault damage
+    zone, in structural-grid voxels. Default <code>1</code>.</li>
+<li><strong><code>t0</code></strong>, <strong><code>t1</code></strong>, <strong><code>num_steps</code></strong> <em>(optional)</em>: Start time, end
+    time, and number of steps for the transient heat stage. Default
+    <code>t0=0.0</code>, <code>num_steps=1</code>; <code>t1</code> defaults to a data-driven estimate of
+    the model's thermal diffusion timescale if not given.</li>
+<li><strong><code>p_top</code></strong>, <strong><code>p_bottom</code></strong> <em>(optional)</em>: Pressure boundary values
+    at the model top/bottom, in Pa. Default <code>p_top=0.0</code>, <code>p_bottom=1e6</code>.</li>
+<li><strong><code>t_top</code></strong>, <strong><code>t_bottom</code></strong> <em>(optional)</em>: Temperature boundary
+    values at the model top/bottom, in °C. Default <code>t_top=10.0</code>,
+    <code>t_bottom=60.0</code>.</li>
+<li><strong><code>linear_solver</code></strong> <em>(optional)</em>: <code>"iterative"</code> (default) scales to
+    large meshes; <code>"direct"</code> is exact but does not scale well --- use it
+    for small or debug meshes.</li>
+<li><strong><code>linear_solver_i_max</code></strong>, <strong><code>linear_solver_eps_r</code></strong> <em>(optional)</em>:
+    Maximum iterations and relative residual tolerance for the iterative
+    linear solver. Default <code>500</code> and <code>1e-8</code>.</li>
+<li><strong><code>linear_solver_eps_r</code></strong> <em>(optional)</em>: Linear-solver controls.</li>
+</ul>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">rock_properties</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="s2">"basement"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"basement"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-13</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">3900000</span><span class="p">),</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="s2">"rock1"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock1"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.30</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-11</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">800000</span><span class="p">),</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="s2">"rock2"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock2"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.20</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-12</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">3400000</span><span class="p">),</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="p">}</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">fluid</span> <span class="o">=</span> <span class="n">FluidProperties</span><span class="p">(</span><span class="n">mu</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">,</span> <span class="n">k_fluid</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rho_c_fluid</span><span class="o">=</span><span class="mi">2400000</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">HydrothermalProblemBuilder</span><span class="p">(</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_implicit_structured</span><span class="p">,</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>    <span class="n">rock_properties</span><span class="o">=</span><span class="n">rock_properties</span><span class="p">,</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>    <span class="n">fluid</span><span class="o">=</span><span class="n">fluid</span><span class="p">,</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>    <span class="n">include_flow</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>    <span class="n">t1</span><span class="o">=</span><span class="mf">5e11</span><span class="p">,</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>    <span class="n">num_steps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Here, <code>rock_properties</code> gives each lithology its own porosity,
+permeability, thermal conductivity, and heat capacity; <code>fluid</code> describes
+the pore fluid. <code>t1=5e11</code> overrides the default diffusion-timescale
+estimate for the heat stage's end time, solved over <code>num_steps=3</code> steps.</p>
+<p>A faulted model additionally enables the damage zone:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">fault_zone_properties</span> <span class="o">=</span> <span class="n">RockUnitProperties</span><span class="p">(</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"fault_zone"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-19</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mi">2300000</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">)</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">builder</span> <span class="o">=</span> <span class="n">HydrothermalProblemBuilder</span><span class="p">(</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_explicit_unstructured</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="n">rock_properties</span><span class="o">=</span><span class="n">rock_properties</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="n">fluid</span><span class="o">=</span><span class="n">fluid</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>    <span class="n">fault_zone_properties</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="n">fault_zone_n_voxels</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>This gives the fault a low porosity/permeability --- a sealing fault.
+Raising <code>permeability</code> above the surrounding rock instead represents a
+fracture-enhanced conduit.</p>
+<p><strong>SfePy hydrothermal problem limitations:</strong></p>
+<ul>
+<li>The built-in model uses a single fluid phase.</li>
+<li>Pressure-to-temperature coupling is one-way; temperature does not
+    feed back into the flow field.</li>
+<li>Faults are represented as a combined volumetric damage zone rather
+    than explicit interface elements.</li>
+<li>Engineering objects such as wells and point sources are not
+    physically solved by this built-in workflow.</li>
+</ul>
+<h3 id="sfepy-user-supplied-problem">SfePy: User-supplied Problem</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Build Custom SfePy Problem</code></p>
+</blockquote>
+<p>This component brings a complete SfePy <code>.py</code> input into the Workbench.</p>
+<ul>
+<li><strong><code>input_file</code></strong>: Path to a complete SfePy input file (<code>.py</code>).</li>
+<li><strong><code>mesh_results</code></strong>: The mesh to solve on. Meshes containing wells or
+    sources are rejected --- not supported by this component.</li>
+<li><strong><code>geomodel_result</code></strong> <em>(optional)</em>: The structural model.</li>
+<li><strong><code>fault_zone_n_voxels</code></strong> <em>(optional)</em>: If set, gives cells within
+    this many structural-grid voxels of any active fault's trace their
+    own region id --- the same damage-zone cell selection
+    <code>Build Hydrothermal Problem</code> uses, referenceable from the custom
+    file as <code>cells of group N</code>.</li>
+</ul>
+<p>The builder validates mesh type, lithology mapping, and referenced cell
+groups. Arbitrary equations, material definitions, and solver settings
+remain the responsibility of the custom SfePy input and are ultimately
+checked by SfePy.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"examples/synthetic_examples/model1/input_data/simulation_files/ custom_hydrothermal.py"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="n">custom_input_file_contents</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">custom_builder</span> <span class="o">=</span> <span class="n">CustomSfepyBuilder</span><span class="p">(</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>    <span class="n">input_file_contents</span><span class="o">=</span><span class="n">custom_input_file_contents</span><span class="p">,</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_implicit_structured</span><span class="p">,</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<p><strong>SfePy custom problem limitations:</strong></p>
+<ul>
+<li>Faults can only be represented as a combined volumetric damage zone
+    rather than explicit interface elements.</li>
+<li>Engineering objects such as wells and point sources cannot be
+    physically solved.</li>
+</ul>
+<h3 id="golem-auto-generated-hydrothermal-problem">GOLEM: Auto-generated Hydrothermal Problem</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Build GOLEM Hydrothermal Problem</code></p>
+</blockquote>
+<p>This component constructs a <code>GolemHydrothermalProblemBuilder</code> from a
+WBGeo mesh and structural model. It uses rock and fluid properties
+analogous to the SfePy hydrothermal workflow, while supporting explicit
+GOLEM fault properties when suitable 2D fault blocks are present in an
+unstructured mesh.</p>
+<p>Important inputs and controls include:</p>
+<ul>
+<li><strong><code>mesh_results</code></strong>: Mesh used by GOLEM (implicit, structured, or
+    unstructured).</li>
+<li><strong><code>geomodel_result</code></strong>: Structural model.</li>
+<li><strong>rock properties</strong>: Geological-unit hydrothermal properties.</li>
+<li><strong>fluid properties</strong>: Properties of the fluid phase.</li>
+<li><strong>fault properties</strong>: <code>GolemFaultProperties</code> for explicit 2D fault
+    blocks.</li>
+<li><strong><code>p_top</code></strong>, <strong><code>p_bottom</code></strong>: Pressure boundary values.</li>
+<li><strong><code>t_top</code></strong>, <strong><code>t_bottom</code></strong>: Temperature boundary values.</li>
+<li><strong>initial pressure / temperature</strong>: Initial-state controls.</li>
+<li><strong><code>start_time</code></strong>, <strong><code>end_time</code></strong>, <strong><code>dt</code></strong>, <strong><code>num_steps</code></strong>: Time
+    controls.</li>
+<li><strong><code>output_interval</code></strong>: Result-output frequency.</li>
+<li><strong><code>print_linear_residuals</code></strong>: Enables linear residual reporting.</li>
+</ul>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">rock_properties</span> <span class="o">=</span> <span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>    <span class="s2">"basement"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"basement"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mf">2.2e6</span><span class="p">),</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="s2">"rock1"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock1"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mf">2.2e6</span><span class="p">),</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="s2">"rock2"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock2"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mf">2.2e6</span><span class="p">),</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="s2">"rock3"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock3"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mf">2.1e6</span><span class="p">),</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>    <span class="s2">"rock4"</span><span class="p">:</span> <span class="n">RockUnitProperties</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"rock4"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-14</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mf">2.1e6</span><span class="p">),</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">fluid</span> <span class="o">=</span> <span class="n">FluidProperties</span><span class="p">(</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="n">viscosity</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">,</span>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="n">thermal_conductivity</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>    <span class="n">density</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>    <span class="n">fluid_modulus</span> <span class="o">=</span> <span class="mf">2.2e9</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="p">)</span>
+</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="n">fault_zone_properties</span> <span class="o">=</span> <span class="n">RockUnitProperties</span><span class="p">(</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"fault_zone"</span><span class="p">,</span> <span class="n">porosity</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">permeability</span><span class="o">=</span><span class="mf">1e-19</span><span class="p">,</span> <span class="n">k_solid</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">rho_c_solid</span><span class="o">=</span><span class="mf">2.3e6</span>
+</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="p">)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
+</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">golem_fault_properties</span> <span class="o">=</span> <span class="n">GolemFaultProperties</span><span class="p">(</span>
+</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="n">name</span><span class="o">=</span><span class="s2">"fault"</span><span class="p">,</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">porosity</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="o">.</span><span class="n">porosity</span><span class="p">,</span>
+</span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">permeability</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="o">.</span><span class="n">permeability</span><span class="p">,</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="n">thermal_conductivity</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="o">.</span><span class="n">thermal_conductivity</span><span class="p">,</span>
+</span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>    <span class="n">density</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="o">.</span><span class="n">density</span><span class="p">,</span>
+</span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>    <span class="n">heat_capacity</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="o">.</span><span class="n">heat_capacity</span><span class="p">,</span>
+</span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a>    <span class="n">fluid_modulus</span><span class="o">=</span><span class="n">fault_zone_properties</span><span class="o">.</span><span class="n">fluid_modulus</span><span class="p">,</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a>    <span class="n">aperture</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+</span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a>    <span class="n">permeability_model</span><span class="o">=</span><span class="s2">"constant"</span><span class="p">,</span>
+</span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="p">)</span>
+</span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a>
+</span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">problem_golem</span> <span class="o">=</span> <span class="n">GolemHydrothermalProblemBuilder</span><span class="p">(</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_explicit_unstructured</span><span class="p">,</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a>    <span class="n">rock_properties</span><span class="o">=</span><span class="n">rock_properties</span><span class="p">,</span>
+</span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    <span class="n">fluid</span><span class="o">=</span><span class="n">fluid</span><span class="p">,</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>    <span class="n">fault_properties</span><span class="o">=</span><span class="n">golem_fault_properties</span><span class="p">,</span>
+</span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>    <span class="n">p_top</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+</span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>    <span class="n">p_bottom</span><span class="o">=</span><span class="mf">1.0e6</span><span class="p">,</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>    <span class="n">t_top</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+</span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="n">t_bottom</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span>
+</span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a>    <span class="n">num_steps</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>When explicit fault behaviour is required, use an unstructured mesh
+containing the exported 2D fault block(s). This differs from SfePy's
+built-in damage-zone representation.</p>
+<h3 id="golem-simple-reservoir-problem">GOLEM: Simple Reservoir Problem</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Build GOLEM Simple Reservoir Problem</code></p>
+</blockquote>
+<p>The simple-reservoir builder supports two synthetic fractures, a well, an injection source,
+geological faults already present in the structural model, local mesh
+refinement, material/fluid properties, transient controls, and low-level
+PETSc solver settings.</p>
+<p>The builder accepts the following inputs.</p>
+<h4 id="structural-model-input">Structural-model input</h4>
+<ul>
+<li><strong><code>geomodel_result</code></strong>: Required structural model used to determine
+    the model extent and construct the reservoir geometry.</li>
+</ul>
+<h4 id="unstructured-mesh-inputs">Unstructured-mesh inputs</h4>
+<ul>
+<li><strong><code>mesh_size</code></strong> <em>(optional)</em>: Target volume-mesh size. Default
+    <code>30.0</code>.</li>
+<li><strong><code>curve_mesh_size</code></strong> <em>(optional)</em>: Target mesh size on well curves.
+    Default <code>5.0</code>.</li>
+<li><strong><code>mapping_litho</code></strong> <em>(optional)</em>: Lithology mapping method. Default
+    <code>"automatic_centers"</code>.</li>
+<li><strong><code>gmsh_flag</code></strong> <em>(optional)</em>: Option forwarded to the unstructured
+    mesh generator. Default <code>False</code>.</li>
+<li><strong><code>merge_file</code></strong> <em>(optional)</em>: Optional merge file passed to the
+    unstructured meshing workflow. Default <code>None</code>.</li>
+<li><strong><code>z_threshold</code></strong> <em>(optional)</em>: Optional z-direction threshold used
+    by the unstructured meshing workflow. Default <code>None</code>.</li>
+<li><strong><code>unstructured_mesh_options</code></strong> <em>(optional)</em>: Dictionary of
+    additional keyword arguments accepted by
+    <code>create_unstructured_mesh_data()</code>. Default <code>None</code>.</li>
+</ul>
+<p>For example, additional meshing controls can be supplied as:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">unstructured_mesh_options</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="s2">"tolerance"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="s2">"DISTANCE_THRESHOLD"</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>    <span class="s2">"PROJECTION_THRESHOLD"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>    <span class="s2">"EXTRUSION_FACTOR"</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<h4 id="optional-geometry-overrides">Optional geometry overrides</h4>
+<p>Normally, the builder uses the complete structural-model extent and
+places its reference reservoir geometry automatically. The generated
+fracture pair + a well are centred in the model while preserving the
+reference geometry relationships.</p>
+<ul>
+<li><strong><code>reservoir_extent_override</code></strong> <em>(optional)</em>: Explicit
+    <code>(xmin, xmax, ymin, ymax, zmin, zmax)</code> reservoir extent. Default
+    <code>None</code>.</li>
+<li><strong><code>fracture_planes_override</code></strong> <em>(optional)</em>: Explicit
+    synthetic-fracture plane coordinates. Default <code>None</code>.</li>
+<li><strong><code>wells_override</code></strong> <em>(optional)</em>: Explicit well coordinates.
+    Default <code>None</code>.</li>
+</ul>
+<h4 id="well-refinement-inputs">Well refinement inputs</h4>
+<ul>
+<li><strong><code>well_refine_size_min</code></strong> <em>(optional)</em>: Minimum target mesh size
+    close to the well. Default <code>5.0</code>.</li>
+<li><strong><code>well_refine_size_max</code></strong> <em>(optional)</em>: Maximum target mesh size
+    away from the well. Default <code>30.0</code>.</li>
+<li><strong><code>well_refine_dist_min</code></strong> <em>(optional)</em>: Inner distance for well
+    refinement. Default <code>10.0</code>.</li>
+<li><strong><code>well_refine_dist_max</code></strong> <em>(optional)</em>: Outer distance for well
+    refinement. Default <code>60.0</code>.</li>
+</ul>
+<h4 id="synthetic-fracture-refinement-inputs">Synthetic-fracture refinement inputs</h4>
+<ul>
+<li><strong><code>fracture_refine_size_min</code></strong> <em>(optional)</em>: Minimum target mesh
+    size close to the synthetic fractures. Default <code>5.0</code>.</li>
+<li><strong><code>fracture_refine_size_max</code></strong> <em>(optional)</em>: Maximum target mesh
+    size away from the fractures. Default <code>30.0</code>.</li>
+<li><strong><code>fracture_refine_dist_min</code></strong> <em>(optional)</em>: Inner distance for
+    fracture refinement. Default <code>10.0</code>.</li>
+<li><strong><code>fracture_refine_dist_max</code></strong> <em>(optional)</em>: Outer distance for
+    fracture refinement. Default <code>60.0</code>.</li>
+<li><strong><code>scale_refinement_with_model</code></strong> <em>(optional)</em>: If <code>True</code>,
+    refinement lengths are scaled relative to the reference model using
+    the smallest model-axis scale. <code>mesh_size</code> and <code>curve_mesh_size</code>
+    remain direct meshing inputs. Default <code>True</code>.</li>
+</ul>
+<h4 id="reservoir-rock-properties">Reservoir rock properties</h4>
+<p>One common intrinsic rock material is applied to all 3D reservoir
+blocks. Existing geological-fault blocks use the same intrinsic rock
+properties.</p>
+<ul>
+<li><strong><code>rock_porosity</code></strong> <em>(optional)</em>: Rock porosity. Default <code>0.1</code>.</li>
+<li><strong><code>rock_permeability</code></strong> <em>(optional)</em>: Rock permeability. Default
+    <code>1.0e-15</code>.</li>
+<li><strong><code>rock_density</code></strong> <em>(optional)</em>: Rock density. Default <code>2.6e3</code>.</li>
+<li><strong><code>rock_thermal_conductivity</code></strong> <em>(optional)</em>: Rock thermal
+    conductivity. Default <code>3.0</code>.</li>
+<li><strong><code>rock_heat_capacity</code></strong> <em>(optional)</em>: Rock heat capacity. Default
+    <code>950.0</code>.</li>
+</ul>
+<h4 id="synthetic-fracture-properties">Synthetic-fracture properties</h4>
+<ul>
+<li><strong><code>fracture_porosity</code></strong> <em>(optional)</em>: Porosity assigned to the two
+    internally generated synthetic fractures. Default <code>1.0</code>.</li>
+<li><strong><code>fracture_aperture</code></strong> <em>(optional)</em>: Aperture of the synthetic
+    fractures. Default <code>1.0e-4</code>.</li>
+</ul>
+<h4 id="geological-fault-property">Geological-fault property</h4>
+<ul>
+<li><strong><code>geological_fault_aperture</code></strong> <em>(optional)</em>: Aperture/scaling
+    required by GOLEM for exported lower-dimensional geological-fault
+    blocks. Geological faults otherwise use the common rock properties
+    above. Default <code>1.0</code>.</li>
+</ul>
+<h4 id="well-properties">Well properties</h4>
+<ul>
+<li><strong><code>well_porosity</code></strong> <em>(optional)</em>: Well porosity. Default <code>1.0</code>.</li>
+<li><strong><code>well_permeability</code></strong> <em>(optional)</em>: Well permeability. Default
+    <code>3.12e-4</code>.</li>
+<li><strong><code>well_scaling_factor</code></strong> <em>(optional)</em>: GOLEM scaling factor used
+    for the well block. Default <code>0.05</code>.</li>
+</ul>
+<h4 id="fluid-properties">Fluid properties</h4>
+<ul>
+<li><strong><code>fluid_density</code></strong> <em>(optional)</em>: Fluid density. Default <code>1.0e3</code>.</li>
+<li><strong><code>fluid_viscosity</code></strong> <em>(optional)</em>: Fluid dynamic viscosity. Default
+    <code>1.0e-3</code>.</li>
+<li><strong><code>fluid_heat_capacity</code></strong> <em>(optional)</em>: Fluid heat capacity. Default
+    <code>4.2e3</code>.</li>
+<li><strong><code>fluid_thermal_conductivity</code></strong> <em>(optional)</em>: Fluid thermal
+    conductivity. Default <code>0.65</code>.</li>
+<li><strong><code>fluid_modulus</code></strong> <em>(optional)</em>: Fluid modulus. Default <code>2.5e9</code>.</li>
+</ul>
+<h4 id="initial-and-boundary-conditions">Initial and boundary conditions</h4>
+<ul>
+<li><strong><code>initial_pressure</code></strong> <em>(optional)</em>: Initial reservoir pressure.
+    Default <code>1.0e7</code>.</li>
+<li><strong><code>initial_temperature</code></strong> <em>(optional)</em>: Initial reservoir
+    temperature. Default <code>150.0</code>.</li>
+<li><strong><code>boundary_pressure</code></strong> <em>(optional)</em>: Reservoir boundary pressure.
+    Default <code>1.0e7</code>.</li>
+<li><strong><code>boundary_temperature</code></strong> <em>(optional)</em>: Reservoir boundary
+    temperature. Default <code>150.0</code>.</li>
+<li><strong><code>injection_temperature</code></strong> <em>(optional)</em>: Injected-fluid
+    temperature. Default <code>70.0</code>.</li>
+</ul>
+<h4 id="injection-and-extraction-inputs">Injection and extraction inputs</h4>
+<ul>
+<li><strong><code>injection_point</code></strong> <em>(optional)</em>: Explicit <code>(x, y, z)</code> injection
+    location. If <code>None</code>, the automatically positioned centre of the
+    first synthetic fracture is used.</li>
+<li><strong><code>extraction_point</code></strong> <em>(optional)</em>: Explicit <code>(x, y, z)</code> extraction
+    location. If <code>None</code>, the automatically positioned centre of the
+    second synthetic fracture is used.</li>
+<li><strong><code>injection_rate</code></strong> <em>(optional)</em>: Injection source rate. Default
+    <code>3.0</code>.</li>
+<li><strong><code>extraction_rate</code></strong> <em>(optional)</em>: Extraction source rate. Default
+    <code>3.0</code>.</li>
+<li><strong><code>source_start_time</code></strong> <em>(optional)</em>: Time at which the
+    injection/extraction sources become active. Default <code>0.0</code>.</li>
+<li><strong><code>source_end_time</code></strong> <em>(optional)</em>: Time at which the sources stop.
+    Default <code>None</code>.</li>
+</ul>
+<h4 id="transient-simulation-inputs">Transient-simulation inputs</h4>
+<ul>
+<li><strong><code>start_time</code></strong> <em>(optional)</em>: Simulation start time. Default <code>0.0</code>.</li>
+<li><strong><code>end_time</code></strong> <em>(optional)</em>: Simulation end time. Default <code>None</code>.</li>
+<li><strong><code>time_sequence</code></strong> <em>(optional)</em>: Explicit sequence of solve times.
+    If <code>None</code>, the builder uses its default simple-reservoir time
+    sequence.</li>
+<li><strong><code>automatic_scaling</code></strong> <em>(optional)</em>: Enables MOOSE automatic
+    scaling. Default <code>True</code>.</li>
+<li><strong><code>compute_scaling_once</code></strong> <em>(optional)</em>: Controls whether scaling is
+    computed only once. Default <code>False</code>.</li>
+</ul>
+<h4 id="petsc-solver-controls">PETSc solver controls</h4>
+<p>The following advanced inputs expose the solver configuration used by
+the generated GOLEM/MOOSE input:</p>
+<ul>
+<li><strong><code>coupled_petsc_options_iname</code></strong> and
+    <strong><code>coupled_petsc_options_value</code></strong>: PETSc options for the coupled
+    nonlinear solve.</li>
+<li><strong><code>pressure_petsc_options_iname</code></strong> and
+    <strong><code>pressure_petsc_options_value</code></strong>: PETSc options for the pressure
+    field solve.</li>
+<li><strong><code>temperature_petsc_options_iname</code></strong> and
+    <strong><code>temperature_petsc_options_value</code></strong>: PETSc options for the
+    temperature field solve.</li>
+</ul>
+<p>The builder provides working defaults for all six solver-control inputs,
+so they normally need to be changed only for advanced solver tuning.</p>
+<h4 id="output-and-diagnostic-controls">Output and diagnostic controls</h4>
+<ul>
+<li><strong><code>print_linear_residuals</code></strong> <em>(optional)</em>: Print linear residual
+    information. Default <code>True</code>.</li>
+<li><strong><code>print_nonlinear_converged_reason</code></strong> <em>(optional)</em>: Print the
+    nonlinear convergence reason. Default <code>True</code>.</li>
+<li><strong><code>perf_graph</code></strong> <em>(optional)</em>: Enable MOOSE performance-graph
+    output. Default <code>True</code>.</li>
+</ul>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">reservoir_problem_model2</span> <span class="o">=</span> <span class="n">GolemSimpleReservoirProblemBuilder</span><span class="p">(</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>    <span class="c1"># Unstructured mesh</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    <span class="n">mesh_size</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>    <span class="n">curve_mesh_size</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>    <span class="n">mapping_litho</span><span class="o">=</span><span class="s2">"automatic_centers"</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>    <span class="n">gmsh_flag</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>    <span class="n">merge_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>    <span class="n">z_threshold</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>    <span class="n">unstructured_mesh_options</span><span class="o">=</span><span class="p">{</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>        <span class="s2">"tolerance"</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>        <span class="s2">"DISTANCE_THRESHOLD"</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>        <span class="s2">"PROJECTION_THRESHOLD"</span><span class="p">:</span> <span class="mi">60</span><span class="p">,</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a>        <span class="s2">"EXTRUSION_FACTOR"</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a>    <span class="p">},</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>    <span class="c1"># Automatic geometry; replace None values to override it explicitly</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a>    <span class="n">reservoir_extent_override</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a>    <span class="n">fracture_planes_override</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>    <span class="n">wells_override</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>    <span class="c1"># Well refinement</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a>    <span class="n">well_refine_size_min</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>    <span class="n">well_refine_size_max</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a>    <span class="n">well_refine_dist_min</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>    <span class="n">well_refine_dist_max</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span>
+</span><span id="__span-5-28"><a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>
+</span><span id="__span-5-29"><a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>    <span class="c1"># Synthetic-fracture refinement</span>
+</span><span id="__span-5-30"><a id="__codelineno-5-30" name="__codelineno-5-30" href="#__codelineno-5-30"></a>    <span class="n">fracture_refine_size_min</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span>
+</span><span id="__span-5-31"><a id="__codelineno-5-31" name="__codelineno-5-31" href="#__codelineno-5-31"></a>    <span class="n">fracture_refine_size_max</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span>
+</span><span id="__span-5-32"><a id="__codelineno-5-32" name="__codelineno-5-32" href="#__codelineno-5-32"></a>    <span class="n">fracture_refine_dist_min</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+</span><span id="__span-5-33"><a id="__codelineno-5-33" name="__codelineno-5-33" href="#__codelineno-5-33"></a>    <span class="n">fracture_refine_dist_max</span><span class="o">=</span><span class="mf">60.0</span><span class="p">,</span>
+</span><span id="__span-5-34"><a id="__codelineno-5-34" name="__codelineno-5-34" href="#__codelineno-5-34"></a>    <span class="n">scale_refinement_with_model</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-5-35"><a id="__codelineno-5-35" name="__codelineno-5-35" href="#__codelineno-5-35"></a>
+</span><span id="__span-5-36"><a id="__codelineno-5-36" name="__codelineno-5-36" href="#__codelineno-5-36"></a>    <span class="c1"># Common reservoir/geological-fault rock properties</span>
+</span><span id="__span-5-37"><a id="__codelineno-5-37" name="__codelineno-5-37" href="#__codelineno-5-37"></a>    <span class="n">rock_porosity</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span>
+</span><span id="__span-5-38"><a id="__codelineno-5-38" name="__codelineno-5-38" href="#__codelineno-5-38"></a>    <span class="n">rock_permeability</span><span class="o">=</span><span class="mf">1.0e-15</span><span class="p">,</span>
+</span><span id="__span-5-39"><a id="__codelineno-5-39" name="__codelineno-5-39" href="#__codelineno-5-39"></a>    <span class="n">rock_density</span><span class="o">=</span><span class="mf">2.6e3</span><span class="p">,</span>
+</span><span id="__span-5-40"><a id="__codelineno-5-40" name="__codelineno-5-40" href="#__codelineno-5-40"></a>    <span class="n">rock_thermal_conductivity</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+</span><span id="__span-5-41"><a id="__codelineno-5-41" name="__codelineno-5-41" href="#__codelineno-5-41"></a>    <span class="n">rock_heat_capacity</span><span class="o">=</span><span class="mf">950.0</span><span class="p">,</span>
+</span><span id="__span-5-42"><a id="__codelineno-5-42" name="__codelineno-5-42" href="#__codelineno-5-42"></a>
+</span><span id="__span-5-43"><a id="__codelineno-5-43" name="__codelineno-5-43" href="#__codelineno-5-43"></a>    <span class="c1"># Synthetic fractures and geological faults</span>
+</span><span id="__span-5-44"><a id="__codelineno-5-44" name="__codelineno-5-44" href="#__codelineno-5-44"></a>    <span class="n">fracture_porosity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+</span><span id="__span-5-45"><a id="__codelineno-5-45" name="__codelineno-5-45" href="#__codelineno-5-45"></a>    <span class="n">fracture_aperture</span><span class="o">=</span><span class="mf">1.0e-4</span><span class="p">,</span>
+</span><span id="__span-5-46"><a id="__codelineno-5-46" name="__codelineno-5-46" href="#__codelineno-5-46"></a>    <span class="n">geological_fault_aperture</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+</span><span id="__span-5-47"><a id="__codelineno-5-47" name="__codelineno-5-47" href="#__codelineno-5-47"></a>
+</span><span id="__span-5-48"><a id="__codelineno-5-48" name="__codelineno-5-48" href="#__codelineno-5-48"></a>    <span class="c1"># Well</span>
+</span><span id="__span-5-49"><a id="__codelineno-5-49" name="__codelineno-5-49" href="#__codelineno-5-49"></a>    <span class="n">well_porosity</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+</span><span id="__span-5-50"><a id="__codelineno-5-50" name="__codelineno-5-50" href="#__codelineno-5-50"></a>    <span class="n">well_permeability</span><span class="o">=</span><span class="mf">3.12e-4</span><span class="p">,</span>
+</span><span id="__span-5-51"><a id="__codelineno-5-51" name="__codelineno-5-51" href="#__codelineno-5-51"></a>    <span class="n">well_scaling_factor</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span>
+</span><span id="__span-5-52"><a id="__codelineno-5-52" name="__codelineno-5-52" href="#__codelineno-5-52"></a>
+</span><span id="__span-5-53"><a id="__codelineno-5-53" name="__codelineno-5-53" href="#__codelineno-5-53"></a>    <span class="c1"># Fluid</span>
+</span><span id="__span-5-54"><a id="__codelineno-5-54" name="__codelineno-5-54" href="#__codelineno-5-54"></a>    <span class="n">fluid_density</span><span class="o">=</span><span class="mf">1.0e3</span><span class="p">,</span>
+</span><span id="__span-5-55"><a id="__codelineno-5-55" name="__codelineno-5-55" href="#__codelineno-5-55"></a>    <span class="n">fluid_viscosity</span><span class="o">=</span><span class="mf">1.0e-3</span><span class="p">,</span>
+</span><span id="__span-5-56"><a id="__codelineno-5-56" name="__codelineno-5-56" href="#__codelineno-5-56"></a>    <span class="n">fluid_heat_capacity</span><span class="o">=</span><span class="mf">4.2e3</span><span class="p">,</span>
+</span><span id="__span-5-57"><a id="__codelineno-5-57" name="__codelineno-5-57" href="#__codelineno-5-57"></a>    <span class="n">fluid_thermal_conductivity</span><span class="o">=</span><span class="mf">0.65</span><span class="p">,</span>
+</span><span id="__span-5-58"><a id="__codelineno-5-58" name="__codelineno-5-58" href="#__codelineno-5-58"></a>    <span class="n">fluid_modulus</span><span class="o">=</span><span class="mf">2.5e9</span><span class="p">,</span>
+</span><span id="__span-5-59"><a id="__codelineno-5-59" name="__codelineno-5-59" href="#__codelineno-5-59"></a>
+</span><span id="__span-5-60"><a id="__codelineno-5-60" name="__codelineno-5-60" href="#__codelineno-5-60"></a>    <span class="c1"># Initial/boundary conditions</span>
+</span><span id="__span-5-61"><a id="__codelineno-5-61" name="__codelineno-5-61" href="#__codelineno-5-61"></a>    <span class="n">initial_pressure</span><span class="o">=</span><span class="mf">1.0e7</span><span class="p">,</span>
+</span><span id="__span-5-62"><a id="__codelineno-5-62" name="__codelineno-5-62" href="#__codelineno-5-62"></a>    <span class="n">initial_temperature</span><span class="o">=</span><span class="mf">150.0</span><span class="p">,</span>
+</span><span id="__span-5-63"><a id="__codelineno-5-63" name="__codelineno-5-63" href="#__codelineno-5-63"></a>    <span class="n">boundary_pressure</span><span class="o">=</span><span class="mf">1.0e7</span><span class="p">,</span>
+</span><span id="__span-5-64"><a id="__codelineno-5-64" name="__codelineno-5-64" href="#__codelineno-5-64"></a>    <span class="n">boundary_temperature</span><span class="o">=</span><span class="mf">150.0</span><span class="p">,</span>
+</span><span id="__span-5-65"><a id="__codelineno-5-65" name="__codelineno-5-65" href="#__codelineno-5-65"></a>    <span class="n">injection_temperature</span><span class="o">=</span><span class="mf">70.0</span><span class="p">,</span>
+</span><span id="__span-5-66"><a id="__codelineno-5-66" name="__codelineno-5-66" href="#__codelineno-5-66"></a>
+</span><span id="__span-5-67"><a id="__codelineno-5-67" name="__codelineno-5-67" href="#__codelineno-5-67"></a>    <span class="c1"># Sources</span>
+</span><span id="__span-5-68"><a id="__codelineno-5-68" name="__codelineno-5-68" href="#__codelineno-5-68"></a>    <span class="n">injection_point</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-69"><a id="__codelineno-5-69" name="__codelineno-5-69" href="#__codelineno-5-69"></a>    <span class="n">extraction_point</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-70"><a id="__codelineno-5-70" name="__codelineno-5-70" href="#__codelineno-5-70"></a>    <span class="n">injection_rate</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+</span><span id="__span-5-71"><a id="__codelineno-5-71" name="__codelineno-5-71" href="#__codelineno-5-71"></a>    <span class="n">extraction_rate</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span>
+</span><span id="__span-5-72"><a id="__codelineno-5-72" name="__codelineno-5-72" href="#__codelineno-5-72"></a>    <span class="n">source_start_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+</span><span id="__span-5-73"><a id="__codelineno-5-73" name="__codelineno-5-73" href="#__codelineno-5-73"></a>    <span class="n">source_end_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-74"><a id="__codelineno-5-74" name="__codelineno-5-74" href="#__codelineno-5-74"></a>
+</span><span id="__span-5-75"><a id="__codelineno-5-75" name="__codelineno-5-75" href="#__codelineno-5-75"></a>    <span class="c1"># Transient solve</span>
+</span><span id="__span-5-76"><a id="__codelineno-5-76" name="__codelineno-5-76" href="#__codelineno-5-76"></a>    <span class="n">start_time</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+</span><span id="__span-5-77"><a id="__codelineno-5-77" name="__codelineno-5-77" href="#__codelineno-5-77"></a>    <span class="n">end_time</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-78"><a id="__codelineno-5-78" name="__codelineno-5-78" href="#__codelineno-5-78"></a>    <span class="n">time_sequence</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+</span><span id="__span-5-79"><a id="__codelineno-5-79" name="__codelineno-5-79" href="#__codelineno-5-79"></a>    <span class="n">automatic_scaling</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-5-80"><a id="__codelineno-5-80" name="__codelineno-5-80" href="#__codelineno-5-80"></a>    <span class="n">compute_scaling_once</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-5-81"><a id="__codelineno-5-81" name="__codelineno-5-81" href="#__codelineno-5-81"></a>
+</span><span id="__span-5-82"><a id="__codelineno-5-82" name="__codelineno-5-82" href="#__codelineno-5-82"></a>    <span class="c1"># Output/diagnostics</span>
+</span><span id="__span-5-83"><a id="__codelineno-5-83" name="__codelineno-5-83" href="#__codelineno-5-83"></a>    <span class="n">print_linear_residuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-5-84"><a id="__codelineno-5-84" name="__codelineno-5-84" href="#__codelineno-5-84"></a>    <span class="n">print_nonlinear_converged_reason</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-5-85"><a id="__codelineno-5-85" name="__codelineno-5-85" href="#__codelineno-5-85"></a>    <span class="n">perf_graph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-5-86"><a id="__codelineno-5-86" name="__codelineno-5-86" href="#__codelineno-5-86"></a><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="golem-user-supplied-problem">GOLEM: User-supplied Problem</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Build Custom GOLEM Problem</code></p>
+</blockquote>
+<p>A complete user-provided GOLEM/MOOSE <code>.i</code> file can be used through
+<code>CustomGolemBuilder</code>. A custom problem uses <strong>exactly one mesh source per
+run</strong>. This can be a WBGeo mesh object, one level of a hierarchical mesh,
+or an already existing mesh file on disk.</p>
+<p>The supported mesh inputs are:</p>
+<table>
+<thead>
+<tr>
+<th>Builder input</th>
+<th>Placeholder in the <code>.i</code> file</th>
+<th>Behaviour</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mesh_results=...</code></td>
+<td><code>${GOLEM_MESH_FILE}</code></td>
+<td>Export the WBGeo mesh to Exodus and run a normal custom simulation.</td>
+</tr>
+<tr>
+<td><code>mesh1=...</code></td>
+<td><code>${GOLEM_MESH1_FILE}</code></td>
+<td>Export and solve the outer/big hierarchical mesh. Hierarchy sampling can be injected for this mode.</td>
+</tr>
+<tr>
+<td><code>mesh2=...</code></td>
+<td><code>${GOLEM_MESH2_FILE}</code></td>
+<td>Export and solve the inner/small hierarchical mesh as a normal custom simulation.</td>
+</tr>
+<tr>
+<td><code>mesh_file="/path/to/mesh.exo"</code></td>
+<td><code>${GOLEM_MESH_FILE}</code></td>
+<td>Use an existing mesh file directly. The runner copies/stages the file and does not export it again.</td>
+</tr>
+</tbody>
+</table>
+<p>Other relevant inputs are:</p>
+<ul>
+<li><strong><code>input_file_contents</code></strong>: Complete text of the custom GOLEM/MOOSE
+    <code>.i</code> file.</li>
+<li><strong><code>input_file_path</code></strong> <em>(optional)</em>: Path of the original <code>.i</code> file.
+    For a mesh1 hierarchy run, WBGeo can save the hierarchy-augmented
+    input beside it using the suffix <code>_hierarchy_sampling</code>. This path is
+    not used to discover or stage auxiliary input files.</li>
+<li><strong><code>auxiliary_files_dir</code></strong> <em>(optional)</em>: Directory containing auxiliary
+    files required by a custom GOLEM/MOOSE input, for example time-series
+    CSV files. The directory must already exist. The runner copies its
+    complete contents into a <code>files/</code> directory in the GOLEM working
+    directory. The custom <code>.i</code> file should therefore reference these files
+    with relative paths such as <code>files/injection_flowrate.csv</code> or
+    <code>files/frac_aperture.csv</code>.</li>
+<li><strong><code>mesh_file_name</code></strong> <em>(optional)</em>: Staging name to use inside the GOLEM
+    run when <code>mesh_file</code> is supplied. It must be a file name, not a path.
+    If omitted, the source mesh file name is retained.</li>
+<li><strong><code>geomodel_result</code></strong> <em>(optional)</em>: Structural model when required by
+    the surrounding workflow.</li>
+<li><strong><code>print_linear_residuals</code></strong>: Controls residual output.</li>
+<li><strong><code>hierarchy_sample_nodes</code></strong> <em>(mesh1 only)</em>: Hierarchical node/coordinate
+    information returned by <code>hierarchical_mesh()</code> and used to construct
+    GOLEM point samplers.</li>
+<li><strong><code>sample_variables</code></strong> <em>(optional, mesh1 hierarchy sampling)</em>: Variables
+    written by the hierarchy samplers. The default is
+    <code>['pore_pressure', 'temp']</code>.</li>
+</ul>
+<p>The mesh argument and placeholder must match. For example,
+<code>mesh1=mesh1_structural</code> requires <code>${GOLEM_MESH1_FILE}</code> in the <code>.i</code> file;
+it must not reference <code>${GOLEM_MESH2_FILE}</code>. Likewise,
+<code>mesh_file=...</code> uses <code>${GOLEM_MESH_FILE}</code>.</p>
+<h4 id="auxiliary-files-for-a-custom-golem-input">Auxiliary files for a custom GOLEM input</h4>
+<p>A custom <code>.i</code> file may depend on additional files besides its mesh, such as
+CSV files defining a transient injection rate or fracture aperture. Pass
+the directory containing those files explicitly with <code>auxiliary_files_dir</code>.
+WBGeo does not infer this directory from <code>input_file_path</code>.</p>
+<p>For example, with the host layout:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>simulation_files/
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>├── transient.i
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>└── files/
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    ├── injection_flowrate.csv
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>    └── frac_aperture.csv
+</span></code></pre></div>
+<p>build the problem as follows:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/path/to/simulation_files/transient.i"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    <span class="n">transient_input</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">problem</span> <span class="o">=</span> <span class="n">CustomGolemBuilder</span><span class="p">(</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    <span class="n">input_file_contents</span><span class="o">=</span><span class="n">transient_input</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    <span class="n">input_file_path</span><span class="o">=</span><span class="s2">"/path/to/simulation_files/transient.i"</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>    <span class="n">auxiliary_files_dir</span><span class="o">=</span><span class="s2">"/path/to/simulation_files/files"</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    <span class="n">mesh_file</span><span class="o">=</span><span class="s2">"/path/to/existing/GSB_mesh.exo"</span><span class="p">,</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    <span class="n">print_linear_residuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>The <code>.i</code> file can then use paths relative to the GOLEM working directory:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>files/injection_flowrate.csv
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>files/frac_aperture.csv
+</span></code></pre></div>
+<h4 id="existing-mesh-file-by-address">Existing mesh file by address</h4>
+<p>An existing mesh does not need to be present as a <code>MeshResults</code> object in
+Python. Give its address directly with <code>mesh_file</code>:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"/path/to/custom_reservoir.i"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>    <span class="n">custom_golem_input</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">problem</span> <span class="o">=</span> <span class="n">CustomGolemBuilder</span><span class="p">(</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>    <span class="n">input_file_contents</span><span class="o">=</span><span class="n">custom_golem_input</span><span class="p">,</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>    <span class="n">input_file_path</span><span class="o">=</span><span class="s2">"/path/to/custom_reservoir.i"</span><span class="p">,</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>    <span class="n">mesh_file</span><span class="o">=</span><span class="s2">"/path/to/existing/GSB_mesh.exo"</span><span class="p">,</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>    <span class="c1"># Optional name used when staging the mesh for GOLEM:</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>    <span class="n">mesh_file_name</span><span class="o">=</span><span class="s2">"reservoir.exo"</span><span class="p">,</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>    <span class="n">print_linear_residuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>The corresponding mesh entry in the <code>.i</code> file is:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>[Mesh]
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>  [original_mesh]
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>    type = FileMeshGenerator
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>    file = ${GOLEM_MESH_FILE}
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>  []
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>[]
+</span></code></pre></div>
+<p>The runner copies the existing file into the GOLEM staging directory and
+replaces <code>${GOLEM_MESH_FILE}</code> with its container path. It does <strong>not</strong>
+call the WBGeo Exodus exporter for this mode. Because an external file
+does not carry WBGeo <code>MeshResults</code> metadata, WBGeo performs the generic
+required-block validation and GOLEM/MOOSE performs the detailed
+mesh/block/material compatibility checks during execution.</p>
+<p>For the normal in-memory WBGeo case, use <code>mesh_results</code> instead:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">problem</span> <span class="o">=</span> <span class="n">CustomGolemBuilder</span><span class="p">(</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>    <span class="n">input_file_contents</span><span class="o">=</span><span class="n">custom_golem_input</span><span class="p">,</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>    <span class="n">mesh_results</span><span class="o">=</span><span class="n">mesh_explicit_unstructured</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    <span class="n">print_linear_residuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>In this case the runner exports the <code>MeshResults</code> object to Exodus and
+performs WBGeo's detailed material/block validation before Docker/MPI is
+started.</p>
+<h4 id="hierarchical-custom-golem-simulation">Hierarchical custom GOLEM simulation</h4>
+<p>Hierarchical simulations are executed one mesh level at a time. A single
+<code>CustomGolemBuilder</code> call does not solve <code>mesh1</code> and <code>mesh2</code> together.
+The intended sequence is:</p>
+<ol>
+<li>Solve the outer/big mesh with <code>mesh1=...</code> and
+    <code>${GOLEM_MESH1_FILE}</code>.</li>
+<li>During the mesh1 run, optionally sample the solution at boundaries or inside of the small mesh using <code>hierarchy_sample_nodes</code>. These data are considered post-processing data and the solutions are obtained on these data are saved in CSV files.</li>
+<li>Use the generated hierarchy CSV data as boundary or initial conditions in small mesh.</li>
+<li>Solve the inner/small mesh separately with <code>mesh2=...</code> and
+    <code>${GOLEM_MESH2_FILE}</code>. The mesh2 run is otherwise a normal custom
+    GOLEM run and does not automatically inject the mesh1 hierarchy
+    samplers.</li>
+</ol>
+<p>Example mesh1 solve:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">problem_mesh1</span> <span class="o">=</span> <span class="n">CustomGolemBuilder</span><span class="p">(</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>    <span class="n">input_file_contents</span><span class="o">=</span><span class="n">reservoir_input</span><span class="p">,</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>    <span class="n">input_file_path</span><span class="o">=</span><span class="n">reservoir_input_path</span><span class="p">,</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>    <span class="n">mesh1</span><span class="o">=</span><span class="n">mesh1_structural</span><span class="p">,</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>    <span class="n">hierarchy_sample_nodes</span><span class="o">=</span><span class="n">nodes_bcs_structural</span><span class="p">,</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>    <span class="n">sample_variables</span><span class="o">=</span><span class="p">[</span><span class="s2">"pore_pressure"</span><span class="p">,</span> <span class="s2">"temp"</span><span class="p">],</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>    <span class="n">print_linear_residuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">)</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="n">mesh1_results</span> <span class="o">=</span> <span class="n">run_simulation_golem</span><span class="p">(</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a>    <span class="n">problem</span><span class="o">=</span><span class="n">problem_mesh1</span><span class="p">,</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>    <span class="n">image_name</span><span class="o">=</span><span class="s2">"moose-dev:fixed"</span><span class="p">,</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a>    <span class="n">project_dir</span><span class="o">=</span><span class="s2">"/path/to/projects"</span><span class="p">,</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a>    <span class="n">docker_dir</span><span class="o">=</span><span class="s2">"/projects"</span><span class="p">,</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>    <span class="n">output_dir</span><span class="o">=</span><span class="s2">"/path/to/mesh1_output"</span><span class="p">,</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a>    <span class="n">nproc</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>The mesh1 <code>.i</code> file must contain:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>file = ${GOLEM_MESH1_FILE}
+</span></code></pre></div>
+<p>When <code>hierarchy_sample_nodes</code> is supplied, WBGeo adds GOLEM
+<code>PointValueSampler</code> entries for the available hierarchy groups. These
+include the <code>inside_nodes</code> group and the available boundary-face groups
+from the big-mesh frame. The samplers use 
+<code>execute_on = TIMESTEP_END</code>. CSV output is enabled if the input does not
+already provide a CSV output.</p>
+<p>The raw sampler <code>id</code> column is the identifier written by GOLEM's
+<code>PointValueSampler</code> (the containing element id); it should not be treated
+as the WBGeo hierarchy <code>NodeID</code>. The transfer locations themselves come
+from the hierarchy coordinate arrays supplied to the builder. The retained hierarchy data are written in both the big-mesh and small-mesh coordinate systems.</p>
+<p>A separate mesh2 run uses:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">problem_mesh2</span> <span class="o">=</span> <span class="n">CustomGolemBuilder</span><span class="p">(</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="n">input_file_contents</span><span class="o">=</span><span class="n">small_input</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">input_file_path</span><span class="o">=</span><span class="n">small_input_path</span><span class="p">,</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="n">mesh2</span><span class="o">=</span><span class="n">mesh2_structural</span><span class="p">,</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">print_linear_residuals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>and the corresponding <code>.i</code> file contains:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>file = ${GOLEM_MESH2_FILE}
+</span></code></pre></div>
+<h3 id="2-run-the-simulation">2. Run the simulation</h3>
+<h4 id="run-sfepy">Run SfePy</h4>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Run Simulation</code></p>
+</blockquote>
+<p>Both SfePy builders connect to the same runner.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">data_by_time</span> <span class="o">=</span> <span class="n">run_simulation_sfepy</span><span class="p">(</span><span class="n">builder</span><span class="p">)</span>
+</span></code></pre></div>
+<p>For an auto-generated hydrothermal problem, the runner performs the
+pressure stage followed by the heat stage. For a custom SfePy problem,
+execution follows the supplied input.</p>
+<h4 id="run-golem">Run GOLEM</h4>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Run GOLEM Simulation</code></p>
+</blockquote>
+<p>All three GOLEM builders connect to the same runner through the common
+<code>GolemProblem</code> type.</p>
+<p>Important runner inputs for the current <strong>Docker backend</strong> are:</p>
+<ul>
+<li><strong><code>problem</code></strong>: GOLEM problem produced by one of the GOLEM builders.</li>
+<li><strong><code>image_name</code></strong>: Docker image containing GOLEM.</li>
+<li><strong><code>project_dir</code></strong>: Host project directory mounted into the
+    container.</li>
+<li><strong><code>docker_dir</code></strong>: Corresponding path inside the container.</li>
+<li><strong><code>output_dir</code></strong> <em>(optional)</em>: Host destination for final results.</li>
+<li><strong><code>nproc</code></strong>: Number of MPI processes.</li>
+<li><strong><code>keep_files_dir</code></strong> <em>(optional)</em>: Directory in which
+    staged/generated files can be retained for debugging.</li>
+</ul>
+<p>The current function signature is Docker-specific: <code>image_name</code>, <code>project_dir</code>, and <code>docker_dir</code> are required by this backend. Native SLURM execution is not yet an alternative backend in the runner. When such a backend is added, WBGeo should be started once by the batch job and only the GOLEM executable should be launched with <code>srun</code>/MPI across the allocated tasks.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">problem_golem_results</span> <span class="o">=</span> <span class="n">run_simulation_golem</span><span class="p">(</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="n">problem</span><span class="o">=</span><span class="n">problem_golem</span><span class="p">,</span>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="n">image_name</span><span class="o">=</span><span class="s2">"moose-dev:fixed"</span><span class="p">,</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>    <span class="n">project_dir</span><span class="o">=</span><span class="s2">"/path/to/projects"</span><span class="p">,</span>
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>    <span class="n">docker_dir</span><span class="o">=</span><span class="s2">"/projects"</span><span class="p">,</span>
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>    <span class="n">output_dir</span><span class="o">=</span><span class="s2">"/path/to/output"</span><span class="p">,</span>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>    <span class="n">nproc</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>The GOLEM runner performs the following operations:</p>
+<ol>
+<li>Selects the single configured mesh source. WBGeo <code>mesh_results</code>,
+    <code>mesh1</code>, and <code>mesh2</code> objects are exported to Exodus; <code>mesh_file</code> is
+    copied directly without re-export.</li>
+<li>Generates or stages the GOLEM/MOOSE <code>.i</code> input. For a custom problem
+    with <code>auxiliary_files_dir</code>, copies the contents of that directory into
+    <code>files/</code> in the GOLEM working directory.</li>
+<li>For a custom <code>mesh1</code> run with hierarchy sampling data, injects the
+    hierarchy <code>PointValueSampler</code> definitions and ensures CSV output is
+    available.</li>
+<li>Validates the input. WBGeo meshes receive detailed material/block
+    validation; external mesh files receive generic input-structure
+    validation because no <code>MeshResults</code> metadata is available.</li>
+<li>Replaces the matching mesh placeholder (<code>${GOLEM_MESH_FILE}</code>,
+    <code>${GOLEM_MESH1_FILE}</code>, or <code>${GOLEM_MESH2_FILE}</code>) with the staged
+    container path.</li>
+<li>Executes GOLEM in the configured Docker environment using MPI.</li>
+<li>Copies the complete GOLEM working output back to <code>output_dir</code>, while
+    removing internal <code>*_cp</code> checkpoint directories.</li>
+<li>Post-processes hierarchy sampler CSV files when hierarchy sampling is
+    active (described below).</li>
+<li>Loads the resulting Exodus database into <code>SimulationResults</code> and
+    preserves the native Exodus/output-directory paths for later export.</li>
+<li>Cleans temporary host/container resources while retaining the
+    user-facing outputs.</li>
+</ol>
+<h4 id="hierarchical-golem-csv-output-and-post-processing">Hierarchical GOLEM CSV output and post-processing</h4>
+<p>For a mesh1 hierarchy run, GOLEM/MOOSE writes one sampler
+CSV per hierarchy group <strong>for each written time step</strong>. Typical names are:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>hierarchy_inside_0001.csv
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>hierarchy_top_0001.csv
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>...
+</span></code></pre></div>
+<p>The runner keeps only the highest-numbered hierarchy CSV for each sampling group, so the retained file represents the last written sampler time step. The hierarchy groups come from the available transfer
+points: <code>inside</code> plus boundary groups such as <code>top</code>, <code>bottom</code>, <code>left</code>,
+<code>right</code>, <code>front</code>, and <code>back</code> when present. These data are provided in the coordinate systems of both the big and small meshes in separate directories.</p>
+<p>The resulting hierarchy part of <code>output_dir</code> therefore has the form:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>output_dir/
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>├── big_frame/
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>│   ├── hierarchy_inside_....csv
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>│   ├── hierarchy_top_....csv
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>│   └── ...
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>└── small_frame/
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>    ├── hierarchy_inside_....csv
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a>    ├── hierarchy_top_....csv
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>    └── ...
+</span></code></pre></div>
+<p><code>big_frame</code> and <code>small_frame</code> contain the <strong>same sampled solution rows</strong>
+expressed in the two coordinate frames.</p>
+<h3 id="3-export-the-results">3. Export the results</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Export Simulation Results</code></p>
+</blockquote>
+<p>SfePy and GOLEM both return <code>SimulationResults</code>, but their export paths
+are different.</p>
+<h4 id="sfepy-result-export">SfePy result export</h4>
+<p>For SfePy, the standard Workbench export is a zipped VTK time series.
+The ZIP contains one <code>.vtk</code> file per saved time step together with a
+<code>.pvd</code> collection file for loading the complete time series in ParaView.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">buf</span> <span class="o">=</span> <span class="n">export_simulation_results</span><span class="p">(</span><span class="n">data_by_time</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"vtk"</span><span class="p">)</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"simulation_results.zip"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+</span></code></pre></div>
+<h4 id="golem-result-output-and-export">GOLEM result output and export</h4>
+<p>GOLEM/MOOSE may produce several output files. In addition to the native
+Exodus result (normally <code>wbgeo.e</code>), a model may produce CSV files or
+other configured outputs.</p>
+<blockquote>
+<p><strong>Note:</strong> Model 1 and Model 2 in the examples demonstrate how to use
+the <strong>GOLEM/MOOSE</strong> and <strong>SfePy</strong> simulation workflows. For the
+<strong>GOLEM Simple Reservoir Problem</strong>, the simulation results can be
+exported as an <strong>Exodus</strong> file and opened in <strong>ParaView</strong>. For
+improved visualisation of the reservoir results, use the provided
+ParaView state file <code>reservoir_visualisation.pvsm</code>.</p>
+</blockquote>
+<p>There are two ways to keep GOLEM results in the codebase.</p>
+<p><strong>Option 1 - define <code>output_dir</code> when running GOLEM.</strong></p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">problem_golem_results</span> <span class="o">=</span> <span class="n">run_simulation_golem</span><span class="p">(</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>    <span class="n">problem</span><span class="o">=</span><span class="n">problem_golem</span><span class="p">,</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>    <span class="n">image_name</span><span class="o">=</span><span class="s2">"moose-dev:fixed"</span><span class="p">,</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="n">project_dir</span><span class="o">=</span><span class="s2">"/path/to/projects"</span><span class="p">,</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    <span class="n">docker_dir</span><span class="o">=</span><span class="s2">"/projects"</span><span class="p">,</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    <span class="n">output_dir</span><span class="o">=</span><span class="s2">"/path/to/my_golem_output"</span><span class="p">,</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>    <span class="n">nproc</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>When <code>output_dir</code> is supplied, <code>run_simulation_golem()</code> copies the
+preserved user-facing GOLEM outputs directly into that directory. This
+normally includes the native Exodus result, <code>golem_stdout.txt</code>,
+<code>wbgeo_generated.i</code>, the staged mesh file (<code>wbgeo_mesh.exo</code>,
+<code>wbgeo_mesh1.exo</code>, <code>wbgeo_mesh2.exo</code>, or the chosen external
+<code>mesh_file_name</code>), and additional GOLEM/MOOSE outputs such as CSV files.
+For hierarchy sampling, the final retained sampler CSVs are additionally
+organized under <code>big_frame/</code> and <code>small_frame/</code> as described above.</p>
+<p><strong>Option 2 - export the complete GOLEM output directory as a ZIP.</strong></p>
+<p>The <code>SimulationResults</code> returned by <code>run_simulation_golem()</code> retains the
+path to its preserved GOLEM output directory. This directory can be
+saved as one Zip file using <code>export_simulation_results</code>.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">buf</span> <span class="o">=</span> <span class="n">export_simulation_results</span><span class="p">(</span><span class="n">problem_golem_results</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"golem"</span><span class="p">)</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"simulation_golem_results.zip"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+</span></code></pre></div>
+<p>This is useful when the complete result set needs to be downloaded,
+transferred, or stored as one artifact. The archive preserves the native
+<code>wbgeo.e</code> together with CSV files and the other user-facing files
+produced or retained by the GOLEM runner.</p>
+<p>If only the native GOLEM Exodus database is required, it can be exported
+as a single Exodus file.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">buf</span> <span class="o">=</span> <span class="n">export_simulation_results</span><span class="p">(</span><span class="n">problem_golem_results</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"exodus"</span><span class="p">)</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"simulation_golem_results.e"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+</span></code></pre></div>
+<p>Here <code>format="exodus"</code> returns GOLEM's original multi-time-step Exodus
+file.</p>
+<blockquote>
+<p><strong>Note:</strong> For GOLEM, choose either saving the outputs by defining
+output directory in <code>run_simulation_golem</code> (<code>output_dir</code>) or use
+<code>export_simulation_results</code>. If
+<code>export_simulation_results' is used, use</code>format="golem"<code>to save the whole preserved output directory as a ZIP. Use</code>format="exodus"<code>only when the single native Exodus result is specifically desired. For SfePy, use</code>export_simulation_results<code>with</code>format="vtk"` to save the zipped VTK time series.</p>
+</blockquote>
+<hr />
+<h2 id="visualisation-and-inspection">Visualisation and Inspection</h2>
+<p>Once a simulation has been converted to <code>SimulationResults</code>, SfePy and
+GOLEM results can use the same result plotting functions.</p>
+<p>For the <strong>GOLEM Simple Reservoir Problem</strong>, the saved ParaView state
+file <code>reservoir_visualisation.pvsm</code> can be opened in <strong>ParaView</strong> for
+more detailed visualisation of the simulation results. The state file
+provides a prepared visualisation setup for inspecting the reservoir
+simulation output and can be used in addition to the plotting functions
+available directly in WBGeo.</p>
+<h3 id="plot-materials">Plot Materials</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Plot Materials</code></p>
+</blockquote>
+<p>This is a pre-flight inspection of the problem definition. It plots the
+mesh by material so that geological and fault assignments can be checked
+before running a potentially expensive simulation. This is mainly used
+when SfePy simulation in combination with faults is used.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">plot_builder_materials</span><span class="p">(</span><span class="n">builder</span><span class="p">)</span>
+</span></code></pre></div>
+<p>For SfePy, this can show lithology and damage-zone assignments.</p>
+<h3 id="plot-a-variable-at-a-time-step">Plot a variable at a time step</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Plot Variable (Final Time)</code></p>
+</blockquote>
+<p>Produces a 3D visualisation of a result variable at a selected time.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">plot_variable_at_a_time</span><span class="p">(</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>    <span class="n">simulation_result</span><span class="p">,</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>    <span class="s2">"T"</span><span class="p">,</span>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>    <span class="n">time</span><span class="o">=</span><span class="n">final_time</span><span class="p">,</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>    <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">,</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>    <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="plot-a-cross-section">Plot a cross-section</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Plot Cross Section 2D</code></p>
+</blockquote>
+<p>Slices a result variable on a specified plane and allows initial and
+final states to be compared.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">plot_cross_section_2D</span><span class="p">(</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>    <span class="n">simulation_result</span><span class="p">,</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>    <span class="s2">"temperature"</span><span class="p">,</span>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>    <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>    <span class="n">normal</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>    <span class="n">cmap</span><span class="o">=</span><span class="s2">"coolwarm"</span><span class="p">,</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="view-solver-output-sfepy-only">View solver output (SfePy only)</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>View Solver Output</code></p>
+</blockquote>
+<p>For SfePy, solver output can be stored in
+<code>SimulationResults.sfepy_stdout</code>, with stages such as <code>"pressure"</code>,
+<code>"heat"</code>, or <code>"custom"</code>.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">for</span> <span class="n">stage</span><span class="p">,</span> <span class="n">stdout</span> <span class="ow">in</span> <span class="n">data_by_time</span><span class="o">.</span><span class="n">sfepy_stdout</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="__span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"=== </span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2"> ==="</span><span class="p">)</span>
+</span><span id="__span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">stdout</span><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="additional-codebase-only-plots-and-inspection">Additional codebase-only plots and inspection</h3>
+<p>The following post-processing functions are available directly in the
+codebase. They operate on <code>SimulationResults</code> and can therefore be used
+with either SfePy or GOLEM results when the requested variable is
+available.</p>
+<h4 id="plot-the-difference-between-two-time-steps">Plot the difference between two time steps</h4>
+<p><code>plot_variable_difference()</code> displays the change in a point-data
+variable between two saved time steps as <code>time_b - time_a</code>. If the two
+times are not specified, the first and last saved time steps are used.
+The colour scale is centred symmetrically around zero so that increases
+and decreases can be distinguished directly.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">plot_variable_difference</span><span class="p">(</span>
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>    <span class="n">simulation_result</span><span class="p">,</span>
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>    <span class="s2">"temperature"</span><span class="p">,</span>
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>    <span class="n">time_a</span><span class="o">=</span><span class="n">initial_time</span><span class="p">,</span>
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>    <span class="n">time_b</span><span class="o">=</span><span class="n">final_time</span><span class="p">,</span>
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>    <span class="n">cmap</span><span class="o">=</span><span class="s2">"RdBu_r"</span><span class="p">,</span>
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>    <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+</span><span id="__span-28-8"><a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="plot-a-cross-section-difference">Plot a cross-section difference</h4>
+<p><code>plot_cross_section_difference_2D()</code> plots the change in a point-data
+variable between two time steps on a specified 2D section. The results
+are calculated as <code>time_b - time_a</code>. By default, the first and last
+saved time steps are compared.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">plot_cross_section_difference_2D</span><span class="p">(</span>
+</span><span id="__span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>    <span class="n">simulation_result</span><span class="p">,</span>
+</span><span id="__span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>    <span class="s2">"temperature"</span><span class="p">,</span>
+</span><span id="__span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>    <span class="n">time_a</span><span class="o">=</span><span class="n">initial_time</span><span class="p">,</span>
+</span><span id="__span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>    <span class="n">time_b</span><span class="o">=</span><span class="n">final_time</span><span class="p">,</span>
+</span><span id="__span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>    <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>    <span class="n">normal</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+</span><span id="__span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>    <span class="n">cmap</span><span class="o">=</span><span class="s2">"RdBu_r"</span><span class="p">,</span>
+</span><span id="__span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="plot-a-variable-along-a-line">Plot a variable along a line</h4>
+<p><code>plot_variable_along_line()</code> samples a variable along a straight line
+between two points at one time step and plots the sampled values against
+distance along the line.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">plot_variable_along_line</span><span class="p">(</span>
+</span><span id="__span-30-2"><a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>    <span class="n">simulation_result</span><span class="p">,</span>
+</span><span id="__span-30-3"><a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>    <span class="s2">"temperature"</span><span class="p">,</span>
+</span><span id="__span-30-4"><a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>    <span class="n">time</span><span class="o">=</span><span class="n">final_time</span><span class="p">,</span>
+</span><span id="__span-30-5"><a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>    <span class="n">p0</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-30-6"><a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>    <span class="n">p1</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-30-7"><a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>    <span class="n">n_samples</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+</span><span id="__span-30-8"><a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Sampling is performed from the simulation mesh using PyVista.</p>
+<h4 id="print-a-variable-at-a-point">Print a variable at a point</h4>
+<p><code>print_variable_at_point()</code> samples a variable at a specified point and
+time.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">value</span> <span class="o">=</span> <span class="n">print_variable_at_point</span><span class="p">(</span>
+</span><span id="__span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>    <span class="n">simulation_result</span><span class="p">,</span>
+</span><span id="__span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>    <span class="s2">"temperature"</span><span class="p">,</span>
+</span><span id="__span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>    <span class="n">time</span><span class="o">=</span><span class="n">final_time</span><span class="p">,</span>
+</span><span id="__span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>    <span class="n">point</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="p">)</span>
+</span><span id="__span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>
+</span><span id="__span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</span></code></pre></div>
+<p>If the requested point lies outside the mesh, the function logs a
+warning and returns <code>None</code>.</p>
+<h4 id="plot-a-time-series-at-a-point">Plot a time series at a point</h4>
+<p><code>plot_variable_time_series()</code> samples a variable at the same spatial
+point for all saved simulation time steps and plots the resulting time
+series.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="n">plot_variable_time_series</span><span class="p">(</span>
+</span><span id="__span-32-2"><a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>    <span class="n">simulation_result</span><span class="p">,</span>
+</span><span id="__span-32-3"><a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>    <span class="s2">"temperature"</span><span class="p">,</span>
+</span><span id="__span-32-4"><a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>    <span class="n">point</span><span class="o">=</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">500</span><span class="p">),</span>
+</span><span id="__span-32-5"><a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>    <span class="n">decimals</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-32-6"><a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>If the point cannot be sampled at a particular time step, that value is
+represented as a gap in the plotted time series.</p>
+<hr />
+<h2 id="output">Output</h2>
+<p>Both solver pipelines converge to the same WBGeo result type:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>SfePy:
+</span><span id="__span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>Build Hydrothermal Problem ─┐
+</span><span id="__span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>                            ├─&gt; Run Simulation ──────────────┐
+</span><span id="__span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>Build Custom SfePy Problem ─┘                                │
+</span><span id="__span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>                                                             ├─&gt; SimulationResults
+</span><span id="__span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>GOLEM:                                                       │
+</span><span id="__span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>Build GOLEM Hydrothermal Problem ─┐                          │
+</span><span id="__span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>Build GOLEM Simple Reservoir ─────┼─&gt; Run GOLEM Simulation ─┘
+</span><span id="__span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>Build Custom GOLEM Problem ───────┘
+</span><span id="__span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>                                                                  │
+</span><span id="__span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>                                                                  ├─&gt; Visualisation / Inspection
+</span><span id="__span-33-12"><a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a>                                                                  └─&gt; Export Simulation Results
+</span></code></pre></div>
+<p><code>SimulationResults</code> is a time-dependent container for geometry,
+topology, and numerical fields. It includes:</p>
+<ul>
+<li><strong><code>nodes_by_time</code></strong> --- nodal coordinates for each saved time step.</li>
+<li><strong><code>cells_by_time</code></strong> --- cell connectivity.</li>
+<li><strong><code>celltypes_by_time</code></strong> --- VTK-style cell type identifiers.</li>
+<li><strong><code>node_data_by_time</code></strong> --- node-based result variables.</li>
+<li><strong><code>cell_data_by_time</code></strong> --- cell-based result variables.</li>
+<li><strong><code>sfepy_stdout</code></strong> --- solver-specific recorded output where
+    provided by the runner.</li>
+</ul>
+<p>The important architectural distinction is therefore at the <strong>build and
+run stages</strong>. SfePy executes natively in the WBGeo Python environment,
+while the current GOLEM runner stages and executes GOLEM externally through Docker/MPI. Native SLURM execution is a planned/alternative runner backend rather than functionality provided by the current implementation. After execution, both solver pipelines are represented as <code>SimulationResults</code> and can use the common WBGeo visualisation and export layer.</p>
+<p>```</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../meshing/Manual_meshing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Meshing">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Meshing
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../visualization/Manual_visualization/" class="md-footer__link md-footer__link--next" aria-label="Next: Visualization">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Visualization
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      (c) https://git.rwth-aachen.de/wbgeo/
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "search.highlight", "search.suggest", "navigation.indexes", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

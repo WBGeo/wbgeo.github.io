@@ -1,0 +1,1499 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wbgeo.pages.rwth-aachen.de/codebase/components/meshing/Manual_meshing/">
+      
+      
+        <link rel="prev" href="../../structural_modeling/Manual_structural_modeling/">
+      
+      
+        <link rel="next" href="../../simulation/Manual_simulation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Meshing - WBGeo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#meshing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="WBGeo" class="md-header__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WBGeo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Meshing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://git.rwth-aachen.de/wbgeo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="WBGeo" class="md-nav__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    WBGeo
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://git.rwth-aachen.de/wbgeo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Git
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../installation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/visual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Editor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../installation/codebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../structural_modeling/Manual_structural_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structural Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meshing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meshing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-explicit-structured-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Explicit structured mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-explicit-unstructured-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Explicit unstructured mesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Explicit unstructured mesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineering-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engineering objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh-generation-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh generation parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh refinement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-implicit-structured-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Implicit structured mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-export-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Export the mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualisation-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation and Inspection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulation/Manual_simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visualization/Manual_visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../developers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer's Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer's Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../developers/local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Concepts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-explicit-structured-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Explicit structured mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-explicit-unstructured-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Explicit unstructured mesh
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Explicit unstructured mesh">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#engineering-objects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engineering objects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh-generation-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh generation parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mesh-refinement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mesh refinement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-implicit-structured-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Implicit structured mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-export-the-mesh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Export the mesh
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visualisation-and-inspection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visualisation and Inspection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Output
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="meshing">Meshing</h1>
+<p>Meshing turns the output of the structural modeling component into a mesh suitable for numerical simulation. This is non-trivial: geological models tend to produce complex geometries — overlapping surfaces, small gaps, cavities, unconformities — that make generating a valid, water-tight mesh difficult. A valid mesh must be topologically consistent, without gaps or overlaps, to give reliable simulation results. Preserving geological realism while keeping the mesh numerically stable and computationally efficient requires careful treatment of faults, stratigraphic boundaries, and unconformities.</p>
+<p>The Workbench addresses this with two complementary approaches — <strong>explicit</strong> meshing (structured and unstructured) and <strong>implicit</strong> meshing — that turn structural model output into water-tight 3D meshes for geoscientific simulation. The Workbench focuses on 3D models throughout, to better capture the Earth's three-dimensional structure, so all meshing methods produce 3D meshes.</p>
+<blockquote>
+<p><strong>Note:</strong> Interfering or embedded objects — wells, point sources, mining shafts, triangulated surfaces, user-defined planes, and faults — are only supported in explicit <strong>unstructured</strong> mesh generation. These features are not yet implemented for structured or implicit meshing.</p>
+</blockquote>
+<hr />
+<h2 id="concepts">Concepts</h2>
+<p><strong>Explicit meshes</strong> discretise the domain directly into elements whose geometry conforms to the structural model's surfaces. <strong>Implicit meshes</strong> instead sample lithology from the structural model's continuous scalar fields onto a regular grid, without explicitly conforming to the surfaces.</p>
+<p><strong>Structured meshes</strong> arrange elements in a regular, grid-like pattern with predictable node connectivity — in 3D this means hexahedral elements, which are efficient to index and numerically stable. They are well suited to relatively simple, laterally continuous geometries, such as stratified sedimentary sequences, but are less flexible for faults, folds, or discontinuous layers.</p>
+<p><strong>Unstructured meshes</strong> arrange elements — tetrahedral, prismatic, or polyhedral — in an irregular pattern defined by the geometry and topology of the model. They conform more easily to complex or irregular features and support localised refinement, at the cost of higher memory and processing requirements.</p>
+<hr />
+<h2 id="workflow">Workflow</h2>
+<p>Steps 1–3 are alternative meshing methods — pick the one that fits your model, rather than running them in sequence. Step 4 (export) applies to the result of whichever method was used.</p>
+<h3 id="1-explicit-structured-mesh">1. Explicit structured mesh</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Create Structured Mesh</code></p>
+</blockquote>
+<p>Structured meshes are composed of hexahedral elements arranged on a regular grid, which provides good numerical stability and accuracy and allows simpler indexing and faster computation than unstructured meshing.</p>
+<blockquote>
+<p><strong>Note:</strong> Structured mesh generation is designed for geological models in which all layers extend continuously across the entire model domain. It performs best when the layers are approximately horizontal and laterally continuous, covering nearly the full extent of the model in the x and y directions. It is <strong>not suitable</strong> for models containing faults or discontinuous layers that do not span the entire domain.</p>
+</blockquote>
+<p>The inputs are:</p>
+<ul>
+<li><strong><code>refinement_data</code></strong>: A list of integers defining the vertical resolution (number of divisions in the z-direction) between geological surfaces. The list has length <code>n + 1</code>, where <code>n</code> is the number of geological surfaces: the first value defines the divisions between the bottom boundary and the first surface, the last value defines the divisions between the top boundary and the last surface, and the intermediate values define the divisions between consecutive surfaces. Each integer produces <code>m = divisions + 1</code> elements between the corresponding pair of surfaces.</li>
+<li><strong><code>z_threshold</code></strong> <em>(optional)</em>: A small float used to slightly adjust point positions in the vertical direction when points are very close to one another, preventing surface overlap and ensuring proper mesh separation.</li>
+<li><strong><code>mesh_division</code></strong> <em>(optional)</em>: A list of two values defining the mesh resolution in the x and y directions. The generated mesh has one fewer element than each specified value — for example, <code>mesh_division = [5, 8]</code> creates a mesh with 4 elements in x and 7 elements in y.</li>
+<li><strong><code>tolerance</code></strong> <em>(optional)</em>: A float threshold defining the minimum vertical separation between points. If two points are closer than this value in z, one of them is shifted vertically by <code>z_threshold</code> to prevent overlap.</li>
+<li><strong><code>extent</code></strong> <em>(optional)</em>: The model bounding box <code>(min_x, max_x, min_y, max_y, min_z, max_z)</code>. If not defined, the extent of the structural model given in <code>geomodel_result</code> is used.</li>
+</ul>
+<p>In the codebase, an additional argument is required as the first input:</p>
+<ul>
+<li><strong><code>geomodel_result</code></strong>: Output of the structural model, containing geological surfaces and their vertices, faults, normal vectors, model extent, and grid points with material identifiers for each geological layer.</li>
+</ul>
+<p>The output is a structured 3D hexahedral mesh with consistent node ordering, producing a valid, right-handed (counter-clockwise) hexahedral orientation.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">mesh_explicit_structured</span> <span class="o">=</span> <span class="n">create_structured_mesh_data</span><span class="p">(</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="n">refinement_data</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    <span class="n">mesh_division</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    <span class="n">tolerance</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">950</span><span class="p">),</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>Here, <code>structural_model_result</code> is the output of a previously generated structural model. <code>refinement_data=[10, 10, 10]</code> subdivides each interval between consecutive surfaces into 10 vertical layers. <code>mesh_division=[12, 12]</code> sets the mesh resolution to 12 divisions in x and y. <code>tolerance=0.5</code> sets the minimum allowed vertical separation between neighbouring points before adjustment, and <code>extent</code> defines the spatial limits of the mesh.</p>
+<h3 id="2-explicit-unstructured-mesh">2. Explicit unstructured mesh</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Create Unstructured Mesh</code></p>
+</blockquote>
+<p>Unstructured meshes are composed of tetrahedral elements arranged irregularly, generated using the open-source package <strong>Gmsh</strong>. They conform more easily to complex geological features — faults, folds, cavities, erosional surfaces — and support local refinement where higher resolution is needed, at the cost of higher memory and processing requirements than structured meshing.</p>
+<p>This is the only meshing method that supports embedding engineering objects and faults.</p>
+<h4 id="engineering-objects">Engineering objects</h4>
+<p>All engineering objects below are optional, loaded from CSV files, and passed into <code>Create Unstructured Mesh</code> alongside the structural model output.</p>
+<p><strong><code>wells</code></strong> — well trajectories, each a straight line or a polyline (a sequence of points) between the top and bottom of the well.</p>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Load Well</code></p>
+</blockquote>
+<p>Each row of the CSV file corresponds to a single point on a well and has four columns: <code>id</code>, <code>x</code>, <code>y</code>, <code>z</code>. Rows sharing an <code>id</code> belong to the same well; each well needs at least two points (top and bottom), with additional intermediate points allowed for piecewise-linear trajectories. Lines starting with <code>#</code> are ignored.</p>
+<p>A CSV file defining two wells — one a single straight segment, the other a polyline of two connected segments — looks like:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># id, x, y, z
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>1, 100, 200, 400
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>1, 100, 200, 600
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>2, 300, 500, 300
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>2, 300, 500, 400
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>2, 400, 500, 400
+</span></code></pre></div>
+<p>This defines well 1 as <code>(100, 200, 400) → (100, 200, 600)</code>, and well 2 as <code>(300, 500, 300) → (300, 500, 400) → (400, 500, 400)</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">wells</span> <span class="o">=</span> <span class="n">load_wells_from_csv</span><span class="p">(</span><span class="n">cwd</span> <span class="o">+</span> <span class="s2">"/examples/synthetic_examples/model2/input_data/engineering_objects/model_2_wells.csv"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong><code>sources</code></strong> — point sources, each a single <code>(x, y, z)</code> point.</p>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Load Source</code></p>
+</blockquote>
+<p>Each row has four columns: <code>id</code>, <code>x</code>, <code>y</code>, <code>z</code>. Each <code>id</code> must appear exactly once — unlike wells, sources cannot span multiple rows. Lines starting with <code>#</code> are ignored.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a># id, x, y, z
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>1, 100, 200, 400
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2, 300, 500, 300
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">sources</span> <span class="o">=</span> <span class="n">load_sources_from_csv</span><span class="p">(</span><span class="n">cwd</span> <span class="o">+</span> <span class="s2">"/examples/synthetic_examples/model2/input_data/engineering_objects/model_2_sources.csv"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong><code>shafts</code></strong> — mining shafts, each a cylinder with a center <code>(x, y, z)</code>, an axis direction <code>(dx, dy, dz)</code>, and a radius.</p>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Load Shaft</code></p>
+</blockquote>
+<p>Each row has eight columns: <code>id, cx, cy, cz, ax, ay, az, radius</code>, where <code>cx/cy/cz</code> is the center, <code>ax/ay/az</code> is the axis direction vector, and <code>radius</code> is the shaft radius. Each <code>id</code> must appear exactly once. Lines starting with <code>#</code> are ignored.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a># id, cx, cy, cz, ax, ay, az, radius
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>1, 100, 200, 300, 0, 0, 1, 50
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>2, 400, 500, 600, 1, 0, 0, 75
+</span></code></pre></div>
+<p>This defines shaft 1 with center <code>(100, 200, 300)</code>, axis <code>(0, 0, 1)</code>, radius 50, and shaft 2 with center <code>(400, 500, 600)</code>, axis <code>(1, 0, 0)</code>, radius 75.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">shafts</span> <span class="o">=</span> <span class="n">load_shafts_from_csv</span><span class="p">(</span><span class="n">cwd</span> <span class="o">+</span> <span class="s2">"/examples/synthetic_examples/model2/input_data/engineering_objects/model_2_shafts.csv"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong><code>extra_planes</code></strong> — additional planes, each defined by the coordinates of its four corners (12 values). Useful for adding missing geological layers or faults. Only in-plane extra planes can be generated in the Workbench; for out-of-plane surfaces, use <code>triangulations</code> instead.</p>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Load Plane</code></p>
+</blockquote>
+<p>Each row defines a single point belonging to a plane: <code>id, x, y, z</code>. Rows sharing an <code>id</code> belong to the same plane, and each plane needs at least four points. Lines starting with <code>#</code> are ignored.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a># id, x1, y1, z1, x2, y2, z2, x3, y3, z3, x4, y4, z4
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>2, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">planes</span> <span class="o">=</span> <span class="n">load_planes_from_csv</span><span class="p">(</span><span class="n">cwd</span> <span class="o">+</span> <span class="s2">"/examples/synthetic_examples/model2/input_data/engineering_objects/model_2_planes.csv"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong><code>ellipses</code></strong> — elliptical surfaces, each a dictionary with keys:</p>
+<ul>
+<li><code>center</code>: <code>(x, y, z)</code> coordinates of the ellipse center</li>
+<li><code>radii</code>: <code>(r1, r2)</code> semi-major and semi-minor axes</li>
+<li><code>angle1</code> <em>(optional)</em>: start angle in radians (default <code>0.0</code>)</li>
+<li><code>angle2</code> <em>(optional)</em>: end angle in radians (default <code>2π</code>)</li>
+<li><code>zAxis</code> <em>(optional)</em>: normal vector of the ellipse plane (default <code>[0, 0, 1]</code>)</li>
+<li><code>xAxis</code> <em>(optional)</em>: x-axis vector of the ellipse plane (default <code>[1, 0, 0]</code>)</li>
+</ul>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Load Ellipse</code></p>
+</blockquote>
+<p>Each row defines one ellipse. The first column is an ID, followed by the required fields <code>cx, cy, cz, r1, r2</code> and the optional fields <code>angle1, angle2, zx, zy, zz, xx, xy, xz</code>. Lines starting with <code>#</code> are ignored.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a># id, cx, cy, cz, r1, r2, angle1, angle2, zx, zy, zz, xx, xy, xz
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>1, 100, 200, 0, 50, 30
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>2, 400, 500, 10, 75, 50, 0.0, 3.14159, 0, 0, 1, 1, 0, 0
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>3, 0, 0, 0, 25, 10, , , 0, 0, 1, 1, 0, 0
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">ellipses</span> <span class="o">=</span> <span class="n">load_ellipses_from_csv</span><span class="p">(</span><span class="n">cwd</span> <span class="o">+</span> <span class="s2">"/examples/synthetic_examples/model2/input_data/engineering_objects/model_2_ellipses.csv"</span><span class="p">)</span>
+</span></code></pre></div>
+<p><strong><code>triangulations</code></strong> — additional 3D points <code>[(x, y, z), ...]</code> used to generate a Delaunay triangulation for a surface.</p>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Load Triangulations Planes</code></p>
+</blockquote>
+<p>Each row defines a single 3D point with three columns: <code>x, y, z</code>. Lines starting with <code>#</code>, and empty lines, are ignored.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a># x, y, z
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>0.0, 0.0, 0.0
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>1.0, 0.0, 0.0
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>0.0, 1.0, 0.0
+</span></code></pre></div>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">triangulations</span> <span class="o">=</span> <span class="n">load_triangulations_planes_from_csv</span><span class="p">(</span><span class="n">cwd</span> <span class="o">+</span> <span class="s2">"/examples/synthetic_examples/model2/input_data/engineering_objects/model_2_triangulations.csv"</span><span class="p">)</span>
+</span></code></pre></div>
+<h4 id="mesh-generation-parameters">Mesh generation parameters</h4>
+<ul>
+<li><strong><code>tolerance</code></strong>: The maximum allowable deviation (in model coordinate units) when adjusting surface boundaries to match the model extent. During interpolation, surface coordinates can shift slightly due to numerical precision or grid discretisation, so the outermost points may no longer perfectly coincide with the model boundary; <code>tolerance</code> allows small deviations up to this limit to be corrected so the surfaces align with the extent.</li>
+<li><strong><code>mesh_size</code></strong>: The target element size assigned to all geometry points (the background mesh), giving a uniform meshing resolution throughout the domain. Where refinement is active, the Workbench automatically uses the minimum size among all active refinement contributions in the refined regions.</li>
+<li><strong><code>curve_mesh_size</code></strong>: The target number of mesh elements per 2π radians (360°) of curvature. Gmsh reduces the element size in curved regions so that approximately <code>curve_mesh_size</code> elements are used to discretise a full circle — a larger value gives finer meshing along curved regions and coarser meshing where the geometry is nearly flat.</li>
+<li><strong><code>DISTANCE_THRESHOLD</code></strong>: A distance threshold used to identify and remove geological surface points that lie close to fault surfaces. For each geological surface, points within <code>DISTANCE_THRESHOLD</code> of any fault surface are treated as overlapping the fault and are removed. This prevents overlaps and keeps faults cleanly separated from surrounding geological units — the geological model's output typically contains overlapping or duplicated points near fault surfaces. A small value may leave overlapping regions incompletely removed; a large value can remove valid geometry near faults.</li>
+<li><strong><code>PROJECTION_THRESHOLD</code></strong>: The search radius around a fault surface used to find nearby layer points for extrusion. After points near faults are removed (see <code>DISTANCE_THRESHOLD</code>), gaps appear between the geological surfaces and the fault planes; nearby points are extruded — perpendicular to their surface normals — until they intersect the fault plane, closing these gaps. <code>PROJECTION_THRESHOLD</code> should generally be larger than <code>DISTANCE_THRESHOLD</code>, but not so large that points with different curvature far from the fault get selected, which can distort the geometry near the fault.</li>
+<li><strong><code>EXTRUSION_FACTOR</code></strong>: How far each point found within <code>PROJECTION_THRESHOLD</code> is pushed along the direction perpendicular to its surface normal, in model units.</li>
+<li><strong><code>z_threshold</code></strong>: The vertical tolerance used to identify surfaces that are effectively flat across a fault (i.e. the fault produces no meaningful vertical offset there). If a surface's total vertical variation is smaller than <code>z_threshold</code>, the fault is treated as non-displacing for that surface, and no overlap removal or extrusion is applied near it.</li>
+<li><strong><code>extent</code></strong> (optional): The model bounding box <code>(min_x, max_x, min_y, max_y, min_z, max_z)</code>. If not defined, the extent of the structural model given in <code>geomodel_result</code> is used.</li>
+<li><strong><code>smooth</code></strong>: The smoothing parameter for the Radial Basis Function (RBF) interpolation used to rebuild surfaces. Larger values produce smoother surfaces by reducing small-scale noise; smaller values preserve more detail from the original surface geometry.</li>
+<li><strong><code>gmsh_flag</code></strong> (optional): If <code>True</code>, saves the original Gmsh-generated mesh as <code>mesh.msh</code>. Default is <code>False</code>.</li>
+<li>
+<p><strong><code>mapping_litho</code></strong> (optional): How lithological units are assigned to mesh blocks. One of:</p>
+<ul>
+<li><code>"auto"</code> <em>(default)</em> — lithological units are inferred automatically from the geological model.</li>
+<li><code>"none"</code> — no lithological mapping is performed; the mesh corresponds directly to the fragmented Gmsh geometry and may not correctly represent the geological units.</li>
+<li><code>"manual"</code> — lithological mapping is defined explicitly via <code>merge_file</code>.</li>
+</ul>
+<p>In models where geological layers are very close together, or when a coarse mesh is used, <code>"auto"</code> may produce incorrect or ambiguous physical group assignments. In that case, use <code>"none"</code> to inspect which mesh blocks need merging, then switch to <code>"manual"</code> and define the grouping explicitly via <code>merge_file</code>.
+- <strong><code>merge_file</code></strong> <em>(required only when <code>mapping_litho="manual"</code>)</em>: Path to a file listing how mesh blocks should be merged into physical groups representing geological units. Every mesh block must be listed, including blocks that are not merged with any other — one physical group per line, with block IDs on the same line merged together:</p>
+</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a># block ids to be merged
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a># all blocks must be listed here, even if not merged with another
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>27, 29, 31
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>21, 26
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>20, 24, 25, 30, 18, 17
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>22, 23, 28, 19, 16, 13, 11
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>12, 14, 15
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>6, 7, 8, 9, 10
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>1
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>2
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>3
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>4
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>5
+</span></code></pre></div>
+<p>Here, blocks 1–5 are each listed alone and so are assigned their own physical group, while blocks 27, 29, and 31 are listed together and merged into a single physical group.
+- <strong><code>refinement</code></strong>: Local mesh refinement settings around wells, sources, faults, triangulated surfaces, or elliptical features — see <a href="#mesh-refinement">Mesh refinement</a> below. If not provided, a uniform mesh resolution is used.</p>
+<p>In the codebase, an additional argument is required as the first input:</p>
+<ul>
+<li><strong><code>geomodel_result</code></strong>: Output of the structural model, containing geological surfaces and their vertices, faults, normal vectors, model extent, and grid points with material identifiers for each geological layer.</li>
+</ul>
+<blockquote>
+<p><strong>Note:</strong> Unstructured meshes can only be generated for faults that extend primarily in the y–z plane.</p>
+</blockquote>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">mesh_unstructured_with_objects</span> <span class="o">=</span> <span class="n">create_unstructured_mesh_data</span><span class="p">(</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>    <span class="n">wells</span><span class="o">=</span><span class="n">wells</span><span class="p">,</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>    <span class="n">sources</span><span class="o">=</span><span class="n">sources</span><span class="p">,</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>    <span class="n">shafts</span><span class="o">=</span><span class="n">shafts</span><span class="p">,</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    <span class="n">extra_planes</span><span class="o">=</span><span class="n">planes</span><span class="p">,</span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>    <span class="n">tolerance</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>    <span class="n">mesh_size</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    <span class="n">curve_mesh_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>    <span class="n">DISTANCE_THRESHOLD</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    <span class="n">PROJECTION_THRESHOLD</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>    <span class="n">EXTRUSION_FACTOR</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>    <span class="n">z_threshold</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>    <span class="n">gmsh_flag</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>    <span class="n">mapping_litho</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>    <span class="n">refinement</span><span class="o">=</span><span class="n">refinement</span><span class="p">,</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="p">)</span>
+</span></code></pre></div>
+<p>This generates an unstructured tetrahedral mesh from <code>structural_model_result</code>, embedding wells, sources, shafts, and extra planes. <code>mesh_size</code> and <code>curve_mesh_size</code> define the global and curvature-based resolution. <code>DISTANCE_THRESHOLD</code>, <code>PROJECTION_THRESHOLD</code>, and <code>EXTRUSION_FACTOR</code> control geometric processing near faults, while <code>z_threshold</code> handles non-offset faults. <code>gmsh_flag=True</code> saves the original Gmsh <code>.msh</code> file for inspection, <code>mapping_litho="auto"</code> selects automatic lithological mapping, and <code>refinement</code> applies the local mesh refinement strategies defined below.</p>
+<h4 id="mesh-refinement">Mesh refinement</h4>
+<p>The Workbench provides local control of mesh resolution around geological and engineering features, implemented through Gmsh background fields and distance-based mesh size callbacks. A <code>Refinement</code> object can combine any of the following components:</p>
+<ul>
+<li><strong><code>wells</code></strong> — refinement around well trajectories</li>
+<li><strong><code>sources</code></strong> — refinement around point sources</li>
+<li><strong><code>triangulation</code></strong> — refinement around triangulated geological surfaces</li>
+<li><strong><code>ellipses</code></strong> — refinement around elliptical regions</li>
+<li><strong><code>faults</code></strong> — refinement around fault surfaces</li>
+</ul>
+<p>Each component is independent and can be combined with the others. Where multiple refinement strategies overlap, the final mesh size at any location is the minimum of all active contributions, so the most restrictive (finest) requirement dominates.</p>
+<p><strong>Well and source refinement</strong> control mesh density around 1D line features (wells) and 0D point features (sources) using the same two formulations:</p>
+<ul>
+<li><strong>Linear</strong> — a linear transition of mesh size with distance from the feature, using <code>SizeMin</code> (minimum element size at the feature), <code>SizeMax</code> (maximum element size away from it), <code>DistMin</code> (distance within which the mesh stays at <code>SizeMin</code>), and <code>DistMax</code> (distance beyond which it reaches <code>SizeMax</code>).</li>
+<li><strong>Function-based</strong> — mesh size defined by a Gmsh mathematical expression in terms of the distance variable <code>DIST</code> from the feature, for full control over the refinement profile.</li>
+</ul>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">refinement</span> <span class="o">=</span> <span class="n">Refinement</span><span class="p">()</span>
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="c1"># Linear refinement near wells</span>
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">refinement</span><span class="o">.</span><span class="n">wells</span> <span class="o">=</span> <span class="n">LinearWellRefinement</span><span class="p">(</span><span class="n">SizeMin</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">SizeMax</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">DistMin</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span> <span class="n">DistMax</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Here, elements within <code>DistMin</code> (30 units) of a well get the minimum mesh size (<code>SizeMin = 5</code>); between <code>DistMin</code> and <code>DistMax</code> (100 units) the size increases linearly to <code>SizeMax = 90</code>; beyond <code>DistMax</code> it stays at <code>SizeMax</code>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">refinement</span> <span class="o">=</span> <span class="n">Refinement</span><span class="p">()</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c1"># Function-based refinement near wells</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="n">refinement</span><span class="o">.</span><span class="n">wells</span> <span class="o">=</span> <span class="n">FunctionWellRefinement</span><span class="p">(</span><span class="n">expression</span><span class="o">=</span><span class="s2">"5 + 75 * (1 - exp(-DIST / 80))"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Here, the mesh size is about 5 units at the well and increases exponentially with distance, approaching 80 units farther away.</p>
+<p>Refinement around point sources is configured identically — use <code>refinement.sources</code> with <code>LinearSourceRefinement</code> or <code>FunctionSourceRefinement</code> in place of the well equivalents. All parameters carry the same meaning.</p>
+<p><strong>Geometry-based refinement</strong> — triangulation, ellipse, and fault refinement all follow the same principle: mesh size is controlled by distance to the feature surface, using <code>hmin</code> (minimum element size at the feature), <code>hmax</code> (maximum element size away from it), <code>d1</code> (distance threshold for the finest resolution), <code>d2</code> (distance threshold for the transition to the background mesh), and <code>enabled</code> (activates or deactivates the refinement).</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">refinement</span> <span class="o">=</span> <span class="n">Refinement</span><span class="p">()</span>
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1"># Refinement around triangulated surfaces</span>
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="n">refinement</span><span class="o">.</span><span class="n">triangulation</span> <span class="o">=</span> <span class="n">TriangulationRefinement</span><span class="p">(</span><span class="n">hmin</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">hmax</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">d1</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Elements within <code>d1</code> (50 units) of the surface get the minimum size (<code>hmin = 8</code>); between <code>d1</code> and <code>d2</code> (100 units) the size transitions smoothly to <code>hmax = 90</code>; beyond <code>d2</code> it stays at <code>hmax</code>.</p>
+<p>Refinement around ellipses and faults is configured the same way — use <code>refinement.ellipses</code> / <code>EllipseRefinement</code> or <code>refinement.faults</code> / <code>FaultRefinement</code> in place of the triangulation equivalents. All parameters carry the same meaning.</p>
+<p>Multiple refinements can be combined on a single <code>Refinement</code> object:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">refinement</span> <span class="o">=</span> <span class="n">Refinement</span><span class="p">()</span>
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">refinement</span><span class="o">.</span><span class="n">wells</span> <span class="o">=</span> <span class="n">LinearWellRefinement</span><span class="p">(</span><span class="n">SizeMin</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">SizeMax</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">DistMin</span><span class="o">=</span><span class="mf">30.0</span><span class="p">,</span> <span class="n">DistMax</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="n">refinement</span><span class="o">.</span><span class="n">sources</span> <span class="o">=</span> <span class="n">FunctionSourceRefinement</span><span class="p">(</span><span class="n">expression</span><span class="o">=</span><span class="s2">"5 + 75 * (1 - exp(-DIST / 80))"</span><span class="p">)</span>
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">refinement</span><span class="o">.</span><span class="n">faults</span> <span class="o">=</span> <span class="n">FaultRefinement</span><span class="p">(</span><span class="n">hmin</span><span class="o">=</span><span class="mf">8.0</span><span class="p">,</span> <span class="n">hmax</span><span class="o">=</span><span class="mf">90.0</span><span class="p">,</span> <span class="n">d1</span><span class="o">=</span><span class="mf">50.0</span><span class="p">,</span> <span class="n">d2</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Each contributes a local mesh size based on distance to its own feature, and the final mesh size at any point is the smallest (most restrictive) of the active contributions.</p>
+<h3 id="3-implicit-structured-mesh">3. Implicit structured mesh</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Create Structured Implicit Mesh</code></p>
+</blockquote>
+<p>Implicit structured meshes are composed of hexahedral elements arranged on a regular, logically ordered grid inherited directly from the structural model's grid — lithology and material properties are sampled from the model's continuous scalar fields rather than built from explicit surfaces. This makes implicit meshes less flexible for highly irregular geometries than unstructured meshes, but simple, robust, and cheap to compute — well suited to large-scale domains, sensitivity studies, and workflows that require many repeated model evaluations.</p>
+<p>The input is:</p>
+<ul>
+<li><strong><code>extent</code></strong> (optional): The model bounding box <code>(min_x, max_x, min_y, max_y, min_z, max_z)</code>. If not defined, the extent of the structural model given in <code>geomodel_result</code> is used.</li>
+</ul>
+<p>In the codebase, an additional argument is required as the first input:</p>
+<ul>
+<li><strong><code>geomodel_result</code></strong>: Output of the structural model, containing geological surfaces and their vertices, faults, normal vectors, model extent, and grid points with material identifiers for each geological layer.</li>
+</ul>
+<p>The output is a structured 3D hexahedral mesh.</p>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">mesh_implicit_structured</span> <span class="o">=</span> <span class="n">create_implicit_structured_mesh</span><span class="p">(</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>    <span class="n">geomodel_result</span><span class="o">=</span><span class="n">structural_model_result</span><span class="p">,</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>    <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">950</span><span class="p">),</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="p">)</span>
+</span></code></pre></div>
+<h3 id="4-export-the-mesh">4. Export the mesh</h3>
+<blockquote>
+<p><strong>Workbench component:</strong> <code>Download Mesh</code></p>
+</blockquote>
+<p>The Workbench provides a unified export interface for meshes generated by any of the three methods above. Meshes can be exported to <strong>Exodus</strong>, <strong>Gmsh</strong>, <strong>Abaqus</strong>, <strong>Ansys</strong>, <strong>FeFlow</strong>, <strong>STL</strong>, <strong>VTK</strong>, <strong>VTU</strong>, and <strong>VTM</strong> formats — in the visual interface (visual DSL), <code>Download Mesh</code> exposes all of these through a single format selector.</p>
+<blockquote>
+<p><strong>Note:</strong> The Gmsh, STL, and FeFlow exports currently support unstructured meshes only; they are not yet implemented for structured mesh types.</p>
+</blockquote>
+<p>In the codebase, each format has its own export function, e.g. for Gmsh:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">buf</span> <span class="o">=</span> <span class="n">export_mesh_results_to_gmsh</span><span class="p">(</span><span class="n">mesh_unstructured_with_objects</span><span class="p">)</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"filename_example_mesh.msh"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">buf</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+</span></code></pre></div>
+<p><code>export_mesh_results_to_gmsh()</code> takes a mesh object and returns a binary buffer, which is then written to disk. Exporting to other formats follows the same pattern, only the function changes — for example:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">export_mesh_results_to_vtk</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">export_mesh_results_to_vtu</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</span></code></pre></div>
+<p>The Exodus export additionally requires the mesh type:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">buf</span> <span class="o">=</span> <span class="n">export_mesh_results_to_exodus</span><span class="p">(</span><span class="n">mesh_unstructured_with_objects</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">"unstr"</span><span class="p">)</span>
+</span></code></pre></div>
+<p>Here, <code>type</code> is <code>"unstr"</code>, <code>"str"</code>, or <code>"imp"</code> depending on which of the three meshing methods produced the mesh, ensuring correct formatting during export.</p>
+<hr />
+<h2 id="visualisation-and-inspection">Visualisation and Inspection</h2>
+<blockquote>
+<p><strong>Workbench:</strong> Where available, these are exposed as inspector functions with limited functionality in the visual interface (visual DSL) — parameters are fixed; the codebase functions below expose the full set of options.</p>
+<p><strong>Workbench component:</strong> <code>Plot Mesh in 3D</code></p>
+</blockquote>
+<p><code>plot_mesh_3d()</code> gives a quick 3D preview of a generated mesh, colored by lithology using the same element colors as the structural model.</p>
+<ul>
+<li><strong><code>mesh_results</code></strong>: The <code>MeshResults</code> object to plot.</li>
+<li><strong><code>geomodel_result</code></strong>: The structural model result that provides element labels and colors.</li>
+<li><strong><code>style</code></strong> <em>(optional)</em>: PyVista mesh style — <code>"surface"</code>, <code>"wireframe"</code>, or <code>"points"</code>. Default <code>"surface"</code>.</li>
+<li><strong><code>show_plotter</code></strong> <em>(optional)</em>: If <code>True</code>, displays the interactive plot window. Default <code>True</code>.</li>
+</ul>
+<p>Example call in the codebase:</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">plot_mesh_3d</span><span class="p">(</span><span class="n">mesh_unstructured_with_objects</span><span class="p">,</span> <span class="n">structural_model_result</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">"surface"</span><span class="p">)</span>
+</span></code></pre></div>
+<hr />
+<h2 id="output">Output</h2>
+<blockquote>
+<p><strong>Workbench:</strong> The <code>Mesh</code> output port of <code>Create Structured Mesh</code>, <code>Create Unstructured Mesh</code>, or <code>Create Structured Implicit Mesh</code> carries the result. It can be connected directly to <code>Download Mesh</code> for export, or inspected in-place using <code>Plot Mesh in 3D</code>.</p>
+</blockquote>
+<p>Each meshing method returns a <code>MeshResults</code> object:</p>
+<ul>
+<li><strong><code>nodes</code></strong> — node coordinates, shaped <code>(N, 3)</code>.</li>
+<li><strong><code>elements</code></strong> — mesh connectivity, stored as a list of MeshIO <code>CellBlock</code>s.</li>
+<li><strong><code>cell_data</code></strong> <em>(optional)</em> — per-cell data arrays aligned with <code>elements</code>, such as material/lithology IDs.</li>
+<li><strong><code>point_sets</code></strong> <em>(optional)</em> — per-node data arrays.</li>
+<li><strong><code>mesh</code></strong> — a PyVista <code>MultiBlock</code> view of the same data, built on first access. Block 0 is the basement (lithology 0); subsequent blocks follow oldest to youngest.</li>
+</ul>
+<p><code>MeshResults</code> is the direct input to the mesh export components described above, and to <code>Plot Mesh in 3D</code> for quick in-place inspection.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../structural_modeling/Manual_structural_modeling/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Structural Modeling">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Structural Modeling
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../simulation/Manual_simulation/" class="md-footer__link md-footer__link--next" aria-label="Next: Process Simulation">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Process Simulation
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      (c) https://git.rwth-aachen.de/wbgeo/
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "search.highlight", "search.suggest", "navigation.indexes", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

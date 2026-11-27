@@ -1,0 +1,1216 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://wbgeo.github.io/reference/core/structural_modeling_components/structural_model_export/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.2">
+    
+    
+      
+        <title>Structural model export - WBGeo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#core.structural_modeling_components.structural_model_export" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="WBGeo" class="md-header__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WBGeo
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Structural model export
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/WBGeo/codebase" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="WBGeo" class="md-nav__button md-logo" aria-label="WBGeo" data-md-component="logo">
+      
+  <img src="../../../../img/logo.png" alt="logo">
+
+    </a>
+    WBGeo
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/WBGeo/codebase" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../installation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Installation Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/visual/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visual Editor
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../installation/codebase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Codebase
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../components/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Components
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../components/structural_modeling/Manual_structural_modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Structural Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../components/meshing/Manual_meshing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meshing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../components/simulation/Manual_simulation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Process Simulation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../components/visualization/Manual_visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../developers/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer's Guide
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Developer's Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developers/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developers/types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../developers/local/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Local execution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core.structural_modeling_components.structural_model_export" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        structural_model_export
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        StructuralModelExportFormat
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core.structural_modeling_components.structural_model_export.export_structural_model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        export_structural_model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gocad_tsurf
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Structural model export</h1>
+
+<div class="doc doc-object doc-module">
+
+
+
+<a id="core.structural_modeling_components.structural_model_export"></a>
+    <div class="doc doc-contents first">
+
+        <p>Export computed structural models: WBGeo's own <code>.wbgeo_sm</code> file (lossless, can be loaded again) or the
+surfaces and lithology block for other software (GOCAD TSurf, OBJ, VTK).</p>
+<p>The external formats contain the surfaces of all structural elements (<code>masked</code> meshes, i.e. where the
+element exists in the model) and of all faults (<code>unmasked</code> meshes). Each export also contains
+<code>surfaces.csv</code>, which lists the surfaces youngest to oldest with their group, kind (horizon or fault),
+colour and file, because these formats do not store the stratigraphic order. The VTK export also contains
+the lithology block, the scalar fields and the fault domains as a grid: VTK ImageData (<code>.vti</code>) for a
+model on a regular grid, an unstructured grid of hexahedra (<code>.vtu</code>) for a model on an octree grid.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat" class="doc doc-heading">
+            <code>StructuralModelExportFormat</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="enum.StrEnum">StrEnum</span></code></p>
+
+
+
+        <p>Export formats for structural models.</p>
+
+
+
+
+
+
+
+
+              <details class="mkdocstrings-source">
+                <summary>Source code in <code>core/structural_modeling_components/structural_model_export.py</code></summary>
+                <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-29">29</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-34">34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__span-0-29"><a id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-29" name="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-29"></a><span class="k">class</span><span class="w"> </span><span class="nc">StructuralModelExportFormat</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
+</span><span id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__span-0-30"><a id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-30" name="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-30"></a><span class="w">    </span><span class="sd">"""Export formats for structural models."""</span>
+</span><span id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__span-0-31"><a id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-31" name="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-31"></a>    <span class="n">WBGEO</span> <span class="o">=</span> <span class="s2">"wbgeo_sm"</span>      <span class="c1"># WBGeo's own file, lossless, can be loaded again</span>
+</span><span id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__span-0-32"><a id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-32" name="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-32"></a>    <span class="n">GOCAD_TS</span> <span class="o">=</span> <span class="s2">"gocad_ts"</span>   <span class="c1"># one GOCAD TSurf (.ts) file per surface</span>
+</span><span id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__span-0-33"><a id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-33" name="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-33"></a>    <span class="n">OBJ</span> <span class="o">=</span> <span class="s2">"obj"</span>             <span class="c1"># one Wavefront OBJ file with all surfaces, colours in an MTL file</span>
+</span><span id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__span-0-34"><a id="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-34" name="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat--source--__codelineno-0-34"></a>    <span class="n">VTK</span> <span class="o">=</span> <span class="s2">"vtk"</span>             <span class="c1"># surfaces as VTK PolyData (.vtp) + lithology block and fields as a VTK grid (.vti/.vtu)</span>
+</span></code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="core.structural_modeling_components.structural_model_export.export_structural_model" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">export_structural_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">StructuralModelExportFormat</span><span class="o">.</span><span class="n">WBGEO</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Export a structural model as a file to download.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>model</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="StructuralModelResults (core.object_components.StructuralModelResults)" href="../../object_components/#core.object_components.StructuralModelResults">StructuralModelResults</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The computed structural model.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>format</code>
+            </td>
+            <td>
+                  <code><a class="autorefs autorefs-internal" title="StructuralModelExportFormat (core.structural_modeling_components.structural_model_export.StructuralModelExportFormat)" href="#core.structural_modeling_components.structural_model_export.StructuralModelExportFormat">StructuralModelExportFormat</a></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><code>wbgeo_sm</code> (WBGeo's own file, can be loaded again), <code>gocad_ts</code>, <code>obj</code> or <code>vtk</code>.</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="core.structural_modeling_components.structural_model_export.StructuralModelExportFormat.WBGEO">WBGEO</span></code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code><span title="io.BytesIO">BytesIO</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The file content, with <code>filename</code> set: <code>structural_model.wbgeo_sm</code> or a ZIP for the other formats.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>core/structural_modeling_components/structural_model_export.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-248">248</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-249">249</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-250">250</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-251">251</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-252">252</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-253">253</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-254">254</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-255">255</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-256">256</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-257">257</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-258">258</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-259">259</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-260">260</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-261">261</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-262">262</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-263">263</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-264">264</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-265">265</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-266">266</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-267">267</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-268">268</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-269">269</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-270">270</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-271">271</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-272">272</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-273">273</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-274">274</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-275">275</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-276">276</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-277">277</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-278">278</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-279">279</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-280">280</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-281">281</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-282">282</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-283">283</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-284">284</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-285">285</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-286">286</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-287">287</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-248"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-248" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-248"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_structural_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">StructuralModelResults</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-249"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-249" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-249"></a>                            <span class="nb">format</span><span class="p">:</span> <span class="n">StructuralModelExportFormat</span> <span class="o">=</span> <span class="n">StructuralModelExportFormat</span><span class="o">.</span><span class="n">WBGEO</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-250"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-250" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-250"></a><span class="w">    </span><span class="sd">"""Export a structural model as a file to download.</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-251"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-251" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-251"></a>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-252"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-252" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-252"></a><span class="sd">    Args:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-253"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-253" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-253"></a><span class="sd">        model: The computed structural model.</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-254"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-254" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-254"></a><span class="sd">        format: ``wbgeo_sm`` (WBGeo's own file, can be loaded again), ``gocad_ts``, ``obj`` or ``vtk``.</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-255"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-255" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-255"></a>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-256"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-256" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-256"></a><span class="sd">    Returns:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-257"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-257" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-257"></a><span class="sd">        The file content, with ``filename`` set: ``structural_model.wbgeo_sm`` or a ZIP for the other formats.</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-258"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-258" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-258"></a><span class="sd">    """</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-259"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-259" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-259"></a>    <span class="nb">format</span> <span class="o">=</span> <span class="n">StructuralModelExportFormat</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-260"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-260" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-260"></a>    <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="n">StructuralModelExportFormat</span><span class="o">.</span><span class="n">WBGEO</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-261"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-261" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-261"></a>        <span class="n">buffer</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">structural_model_to_bytes</span><span class="p">(</span><span class="n">model</span><span class="p">))</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-262"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-262" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-262"></a>        <span class="n">buffer</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="n">EXPORT_FILE_NAME</span> <span class="o">+</span> <span class="n">FILE_EXTENSION</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-263"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-263" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-263"></a>        <span class="k">return</span> <span class="n">buffer</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-264"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-264" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-264"></a>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-265"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-265" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-265"></a>    <span class="n">surfaces</span> <span class="o">=</span> <span class="n">_surfaces</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-266"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-266" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-266"></a>    <span class="n">members</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-267"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-267" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-267"></a>    <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="n">StructuralModelExportFormat</span><span class="o">.</span><span class="n">GOCAD_TS</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-268"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-268" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-268"></a>        <span class="n">files</span> <span class="o">=</span> <span class="n">_file_names</span><span class="p">(</span><span class="n">surfaces</span><span class="p">,</span> <span class="s2">".ts"</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-269"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-269" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-269"></a>        <span class="k">for</span> <span class="n">surface</span><span class="p">,</span> <span class="n">file</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">surfaces</span><span class="p">,</span> <span class="n">files</span><span class="p">):</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-270"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-270" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-270"></a>            <span class="n">members</span><span class="p">[</span><span class="n">file</span><span class="p">]</span> <span class="o">=</span> <span class="n">gocad_tsurf</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-271"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-271" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-271"></a>    <span class="k">elif</span> <span class="nb">format</span> <span class="o">==</span> <span class="n">StructuralModelExportFormat</span><span class="o">.</span><span class="n">OBJ</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-272"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-272" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-272"></a>        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">EXPORT_FILE_NAME</span><span class="si">}</span><span class="s2">.obj"</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-273"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-273" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-273"></a>        <span class="n">obj</span><span class="p">,</span> <span class="n">mtl</span> <span class="o">=</span> <span class="n">_obj_and_mtl</span><span class="p">(</span><span class="n">surfaces</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-274"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-274" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-274"></a>        <span class="n">members</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">EXPORT_FILE_NAME</span><span class="si">}</span><span class="s2">.obj"</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-275"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-275" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-275"></a>        <span class="n">members</span><span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">EXPORT_FILE_NAME</span><span class="si">}</span><span class="s2">.mtl"</span><span class="p">]</span> <span class="o">=</span> <span class="n">mtl</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-276"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-276" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-276"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-277"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-277" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-277"></a>        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"surfaces/</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">_file_names</span><span class="p">(</span><span class="n">surfaces</span><span class="p">,</span> <span class="s2">".vtp"</span><span class="p">)]</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-278"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-278" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-278"></a>        <span class="n">members</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_vtk_files</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">surfaces</span><span class="p">,</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]))</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-279"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-279" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-279"></a>    <span class="n">members</span><span class="p">[</span><span class="s2">"surfaces.csv"</span><span class="p">]</span> <span class="o">=</span> <span class="n">_surface_table</span><span class="p">(</span><span class="n">surfaces</span><span class="p">,</span> <span class="n">files</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-280"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-280" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-280"></a>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-281"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-281" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-281"></a>    <span class="n">buffer</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-282"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-282" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-282"></a>    <span class="k">with</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZIP_DEFLATED</span><span class="p">)</span> <span class="k">as</span> <span class="n">archive</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-283"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-283" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-283"></a>        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">members</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-284"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-284" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-284"></a>            <span class="n">archive</span><span class="o">.</span><span class="n">writestr</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-285"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-285" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-285"></a>    <span class="n">buffer</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-286"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-286" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-286"></a>    <span class="n">buffer</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">EXPORT_FILE_NAME</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="nb">format</span><span class="o">.</span><span class="n">value</span><span class="si">}</span><span class="s2">.zip"</span>
+</span><span id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__span-0-287"><a id="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-287" name="core.structural_modeling_components.structural_model_export.export_structural_model--source--__codelineno-0-287"></a>    <span class="k">return</span> <span class="n">buffer</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="core.structural_modeling_components.structural_model_export.gocad_tsurf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">gocad_tsurf</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>One surface as a GOCAD TSurf (.ts) file: vertices (VRTX) and triangles (TRGL), 1-based.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>core/structural_modeling_components/structural_model_export.py</code></summary>
+              <div class="language-python highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-108">108</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-114">114</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-116">116</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-117">117</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-118">118</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-119">119</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-120">120</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-121">121</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-122">122</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-123">123</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-124">124</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-125">125</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-128">128</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-129">129</a></span>
+<span class="normal"><a href="#core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-130">130</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-108"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-108" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-108"></a><span class="k">def</span><span class="w"> </span><span class="nf">gocad_tsurf</span><span class="p">(</span><span class="n">surface</span><span class="p">:</span> <span class="n">_Surface</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-109"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-109" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-109"></a><span class="w">    </span><span class="sd">"""One surface as a GOCAD TSurf (.ts) file: vertices (VRTX) and triangles (TRGL), 1-based."""</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-110"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-110" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-110"></a>    <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">_rgb</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-111"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-111" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-111"></a>    <span class="n">lines</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-112"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-112" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-112"></a>        <span class="s2">"GOCAD TSurf 1"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-113"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-113" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-113"></a>        <span class="s2">"HEADER {"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-114"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-114" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-114"></a>        <span class="sa">f</span><span class="s2">"name:</span><span class="si">{</span><span class="n">surface</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-115"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-115" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-115"></a>        <span class="sa">f</span><span class="s2">"*solid*color:</span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">g</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> 1"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-116"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-116" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-116"></a>        <span class="s2">"}"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-117"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-117" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-117"></a>        <span class="s2">"GOCAD_ORIGINAL_COORDINATE_SYSTEM"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-118"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-118" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-118"></a>        <span class="s2">"NAME Default"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-119"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-119" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-119"></a>        <span class="s1">'AXIS_NAME "X" "Y" "Z"'</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-120"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-120" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-120"></a>        <span class="s1">'AXIS_UNIT "m" "m" "m"'</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-121"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-121" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-121"></a>        <span class="s2">"ZPOSITIVE Elevation"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-122"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-122" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-122"></a>        <span class="s2">"END_ORIGINAL_COORDINATE_SYSTEM"</span><span class="p">,</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-123"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-123" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-123"></a>    <span class="p">]</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-124"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-124" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-124"></a>    <span class="k">if</span> <span class="n">surface</span><span class="o">.</span><span class="n">kind</span> <span class="o">==</span> <span class="s2">"fault"</span><span class="p">:</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-125"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-125" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-125"></a>        <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"GEOLOGICAL_FEATURE </span><span class="si">{</span><span class="n">surface</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"GEOLOGICAL_TYPE fault"</span><span class="p">]</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-126"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-126" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-126"></a>    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"TFACE"</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-127"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-127" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-127"></a>    <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"VRTX </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">y</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">z</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">surface</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-128"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-128" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-128"></a>    <span class="n">lines</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"TRGL </span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">c</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">surface</span><span class="o">.</span><span class="n">triangles</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-129"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-129" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-129"></a>    <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"END"</span><span class="p">)</span>
+</span><span id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__span-0-130"><a id="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-130" name="core.structural_modeling_components.structural_model_export.gocad_tsurf--source--__codelineno-0-130"></a>    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
+</span></code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      (c) https://github.com/WBGeo
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "search.highlight", "search.suggest", "navigation.indexes", "navigation.footer"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>
